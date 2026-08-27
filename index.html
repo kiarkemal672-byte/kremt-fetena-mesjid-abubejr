@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<!-- ═══ النور الصيفي — v2 ═══ خلفية حية متعددة الطبقات + خطوط فاخرة للغات الثلاث -->
+<html lang="am" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1B261C">
+<title>ነሐሬ በጋ — Al-Nour Summer</title>
+<link rel="manifest" id="manifestLink">
+<link rel="icon" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231B261C'/%3E%3Cg fill='none' stroke='%23BC9347' stroke-width='2.5'%3E%3Crect x='17' y='17' width='30' height='30'/%3E%3Crect x='17' y='17' width='30' height='30' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Amiri+Quran&family=Aref+Ruqaa:wght@400;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&family=Noto+Serif+Ethiopic:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+/* ═════════════ 1) الأساس والألوان ═════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --paper:#F4EEDC;
+ --card:rgba(255,253,246,.82); --card2:rgba(247,241,226,.72);
+ --ink:#20291F; --ink2:#6E7263;
+ --line:rgba(203,191,162,.5); --line2:rgba(190,176,142,.75);
+ --green:#2E5B3C; --green-d:#234A30; --brass:#A17A33; --brass-d:#8A6420;
+ --red:#A23B2B; --side:#1B261C; --side-ink:#EDE7D6;
+ --sh:0 16px 38px -16px rgba(32,45,28,.28);
+}
+html{font-size:16px}
+body{
+ background:linear-gradient(165deg,#F8F3E4 0%,#F2EBD6 38%,#ECE2C6 72%,#E6DABA 100%);
+ color:var(--ink);font-size:15px;line-height:1.6;
+ -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+ min-height:100vh;
+}
+/* ── نظام الخطوط الفاخر لكل لغة ── */
+body.lang-am{--sans:'Noto Sans Ethiopic',sans-serif;--disp:'Noto Serif Ethiopic',serif;--hero:'Abyssinica SIL','Noto Serif Ethiopic',serif;--ls:.05em}
+body.lang-ar{--sans:'Readex Pro',sans-serif;--disp:'Aref Ruqaa',serif;--hero:'Aref Ruqaa',serif;--ls:0}
+body.lang-en{--sans:'Outfit',sans-serif;--disp:'Fraunces',Georgia,serif;--hero:'Fraunces',Georgia,serif;--ls:.05em}
+body{font-family:var(--sans)}
+.serif{font-family:var(--disp)}
+.quran{font-family:'Amiri Quran',serif}
+::selection{background:var(--brass);color:#FFFCF0}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#C7BA97;border:3px solid transparent;border-radius:10px;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:#A99763;border:3px solid transparent;background-clip:content-box}
+button:focus-visible,a:focus-visible{outline:2px solid var(--brass);outline-offset:2px;border-radius:6px}
+.mut{color:var(--ink2)} .grow{flex:1} .nowrap{white-space:nowrap} .pad{padding:16px}
+.gap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+[dir="rtl"] .flip{transform:scaleX(-1)}
+
+/* ═════════════ 2) الخلفية الحية المتعددة الطبقات ═════════════ */
+.aurora{position:fixed;inset:-15%;z-index:-3;pointer-events:none;
+ background:
+  radial-gradient(42% 36% at 18% 22%,rgba(176,133,56,.20),transparent 68%),
+  radial-gradient(38% 32% at 82% 16%,rgba(46,91,60,.22),transparent 68%),
+  radial-gradient(46% 42% at 74% 82%,rgba(29,77,64,.18),transparent 70%),
+  radial-gradient(34% 30% at 12% 86%,rgba(138,100,32,.14),transparent 70%);
+ animation:aur 46s ease-in-out infinite alternate;will-change:transform}
+@keyframes aur{
+ 0%{transform:translate(0,0) rotate(0deg) scale(1)}
+ 50%{transform:translate(2.5%,-1.5%) rotate(4deg) scale(1.08)}
+ 100%{transform:translate(-2%,2%) rotate(-3deg) scale(1.04)}}
+.lattice{position:fixed;top:-50%;left:-50%;width:200%;height:200%;z-index:-2;pointer-events:none;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23294A33' stroke-opacity='.14' stroke-width='1'%3E%3Crect x='40' y='40' width='40' height='40'/%3E%3Crect x='40' y='40' width='40' height='40' transform='rotate(45 60 60)'/%3E%3Cpath d='M60 20V0M60 100v20M20 60H0M100 60h20M26 26l9 9M94 26l-9 9M26 94l9-9M94 94l-9-9'/%3E%3Cpath d='M0 0l14 14M120 0l-14 14M0 120l14-14M120 120l-14-14'/%3E%3Crect x='-12' y='-12' width='24' height='24' transform='rotate(45 0 0)'/%3E%3Crect x='108' y='-12' width='24' height='24' transform='rotate(45 120 0)'/%3E%3Crect x='-12' y='108' width='24' height='24' transform='rotate(45 0 120)'/%3E%3Crect x='108' y='108' width='24' height='24' transform='rotate(45 120 120)'/%3E%3C/g%3E%3Cg fill='none' stroke='%23A17A33' stroke-opacity='.20' stroke-width='1'%3E%3Ccircle cx='60' cy='60' r='6.5'/%3E%3Ccircle cx='0' cy='0' r='4'/%3E%3Ccircle cx='120' cy='0' r='4'/%3E%3Ccircle cx='0' cy='120' r='4'/%3E%3Ccircle cx='120' cy='120' r='4'/%3E%3C/g%3E%3C/svg%3E");
+ background-size:132px;animation:drift 420s linear infinite;will-change:transform}
+@keyframes drift{to{transform:translate3d(-660px,-330px,0)}}
+.lattice2{position:fixed;top:-50%;left:-50%;width:200%;height:200%;z-index:-2;pointer-events:none;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='none' stroke='%23294A33' stroke-opacity='.08' stroke-width='1.2'%3E%3Crect x='130' y='130' width='160' height='160' transform='rotate(45 210 210)'/%3E%3Crect x='130' y='130' width='160' height='160'/%3E%3Ccircle cx='210' cy='210' r='95'/%3E%3Ccircle cx='210' cy='210' r='132'/%3E%3C/g%3E%3Cg fill='none' stroke='%23A17A33' stroke-opacity='.11' stroke-width='1.2'%3E%3Ccircle cx='0' cy='0' r='60'/%3E%3Ccircle cx='420' cy='0' r='60'/%3E%3Ccircle cx='0' cy='420' r='60'/%3E%3Ccircle cx='420' cy='420' r='60'/%3E%3C/g%3E%3C/svg%3E");
+ background-size:420px;animation:drift2 560s linear infinite reverse;will-change:transform}
+@keyframes drift2{to{transform:translate3d(-840px,-420px,0)}}
+.vignette{position:fixed;inset:0;z-index:-1;pointer-events:none;
+ background:radial-gradient(120% 92% at 50% 40%,transparent 55%,rgba(52,58,36,.15) 100%)}
+.grain{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ═════════════ 3) الأزرار والحقول ═════════════ */
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:10px;
+ padding:9px 16px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:.18s;
+ color:var(--ink);background:rgba(255,253,246,.85);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px -10px rgba(32,45,28,.35)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn.primary{background:linear-gradient(165deg,#3B7352,#25492F);color:#F7F2E4;border-color:transparent;
+ box-shadow:0 10px 22px -10px rgba(37,73,47,.6)}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn.brass{background:linear-gradient(165deg,#BC9347,#93682A);color:#FFFCF0;border-color:transparent;
+ box-shadow:0 10px 22px -10px rgba(138,100,32,.6)}
+.btn.brass:hover{filter:brightness(1.07)}
+.btn.ghost{background:rgba(255,253,246,.55)}
+.btn.ghost:hover{background:rgba(255,253,246,.9)}
+.btn.danger{background:rgba(255,253,246,.4);border-color:#C9836F;color:var(--red)}
+.btn.danger:hover{background:#F9EDE8;box-shadow:none}
+.btn.sm{padding:5px 11px;font-size:13px;border-radius:8px}
+.btn i{font-size:17px}
+.icon-btn{border:none;background:none;color:var(--ink2);cursor:pointer;padding:7px;border-radius:9px;font-size:17px;transition:.15s}
+.icon-btn:hover{background:rgba(161,122,51,.13);color:var(--brass-d)}
+.icon-btn.danger:hover{background:#F6E7E1;color:var(--red)}
+.inp{width:100%;border:1px solid var(--line2);background:rgba(255,255,255,.88);border-radius:10px;
+ padding:9px 12px;font:inherit;font-size:14px;color:var(--ink);transition:.15s}
+.inp:focus{outline:none;border-color:var(--green);background:#fff;box-shadow:0 0 0 4px rgba(46,91,60,.13)}
+.inp.num{width:96px;text-align:center}
+select.inp{cursor:pointer}
+label.fld{display:block;font-size:13px;font-weight:600;color:var(--ink2);margin:15px 0 6px}
+label.fld:first-child{margin-top:0}
+
+/* ═════════════ 4) الهيكل ═════════════ */
+.app{display:grid;grid-template-columns:252px 1fr;min-height:100vh}
+.side{
+ background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='none' stroke='%23EDE7D6' stroke-opacity='.06' stroke-width='1'%3E%3Crect x='28' y='28' width='34' height='34'/%3E%3Crect x='28' y='28' width='34' height='34' transform='rotate(45 45 45)'/%3E%3Ccircle cx='45' cy='45' r='5'/%3E%3Cpath d='M45 11V0M45 79v11M11 45H0M79 45h11'/%3E%3C/g%3E%3C/svg%3E") repeat,
+  linear-gradient(178deg,#26361F 0%,#1B261C 58%,#141D16 100%);
+ color:var(--side-ink);display:flex;flex-direction:column;padding:20px 12px;position:sticky;top:0;height:100vh;
+ border-inline-end:1px solid rgba(161,122,51,.28)}
+.brand{display:flex;gap:12px;align-items:center;padding:4px 12px 18px;border-bottom:1px solid rgba(237,231,214,.15);margin-bottom:14px}
+.brand svg{color:#BC9347;width:37px;height:37px;flex:none;filter:drop-shadow(0 2px 8px rgba(188,147,71,.5))}
+.brand b{display:block;font-family:var(--disp);font-size:17.5px;line-height:1.3}
+.brand span{display:block;font-size:11px;color:rgba(237,231,214,.55);line-height:1.35;margin-top:2px}
+.nav{flex:1}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;border-inline-start:3px solid transparent;
+ color:rgba(237,231,214,.72);text-decoration:none;font-weight:500;font-size:14.5px;margin-bottom:2px;transition:.18s}
+.nav a i{font-size:20px}
+.nav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateX(2px)}
+[dir="rtl"] .nav a:hover{transform:translateX(-2px)}
+.nav a.on{background:linear-gradient(90deg,rgba(161,122,51,.26),rgba(161,122,51,.05));color:#fff;border-inline-start-color:#C9A24B;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.nav a.spark{color:#E8CE93}
+.nav a.spark i{filter:drop-shadow(0 0 6px rgba(232,206,147,.6))}
+.uinfo{border-top:1px solid rgba(237,231,214,.15);padding:14px 12px 4px;display:flex;gap:10px;align-items:center}
+.uinfo .ui-ic{width:38px;height:38px;border-radius:11px;background:rgba(188,147,71,.2);color:#E8CE93;
+ display:flex;align-items:center;justify-content:center;font-size:20px;flex:none;border:1px solid rgba(188,147,71,.35)}
+.uinfo b{display:block;font-size:13.5px;color:#fff}
+.uinfo span{display:block;font-size:11.5px;color:rgba(237,231,214,.55)}
+.col{min-width:0}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 34px;position:sticky;top:0;z-index:6;
+ background:rgba(246,241,229,.74);-webkit-backdrop-filter:blur(14px) saturate(1.25);backdrop-filter:blur(14px) saturate(1.25);
+ border-bottom:1px solid var(--line);flex-wrap:wrap}
+.pt{font-family:var(--disp);font-size:27px;font-weight:600;line-height:1.35}
+.ptline{display:block;width:58px;height:3px;border-radius:2px;margin-top:6px;position:relative;
+ background:linear-gradient(90deg,var(--brass),var(--green))}
+.ptline::after{content:'';position:absolute;top:-2.5px;inset-inline-start:100%;width:8px;height:8px;background:var(--brass);transform:rotate(45deg)}
+.ttools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.langs{display:flex;background:rgba(255,253,246,.7);border:1px solid var(--line2);border-radius:10px;overflow:hidden;
+ -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.langs button{border:none;background:none;padding:6px 12px;font:inherit;font-size:12.5px;cursor:pointer;color:var(--ink2);transition:.15s}
+.langs button:hover{color:var(--ink)}
+.langs button.on{background:linear-gradient(165deg,#2E5B3C,#234A30);color:#F7F2E4}
+.main{padding:26px 34px 70px;max-width:1240px}
+
+/* ═════════════ 5) المكونات ═════════════ */
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.card{background:var(--card);-webkit-backdrop-filter:blur(14px) saturate(1.15);backdrop-filter:blur(14px) saturate(1.15);
+ border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);overflow:hidden;animation:rise .45s cubic-bezier(.2,.7,.3,1) both}
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.w150{width:150px}.w220{width:220px}
+table.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-size:11.5px;letter-spacing:var(--ls);text-transform:uppercase;color:var(--ink2);text-align:start;
+ padding:12px 14px;border-bottom:1px solid var(--line2);background:rgba(238,230,209,.72);white-space:nowrap}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:14px;font-variant-numeric:tabular-nums}
+.tbl tbody tr:last-child td{border-bottom:none}
+.tbl tbody tr{transition:background .15s}
+.tbl tbody tr:hover{background:rgba(161,122,51,.08)}
+.tbl .big{font-size:19px;font-weight:600}
+.bdg{display:inline-flex;align-items:center;font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;border:1px solid}
+.bdg.senior{color:#8A5A22;border-color:#DFC9A4;background:rgba(250,243,227,.8)}
+.bdg.junior{color:#2F5B3C;border-color:#BFD3BB;background:rgba(239,245,238,.8)}
+.bdg.qrn{color:#7A5A1E;border-color:#D8C28D;background:rgba(248,240,220,.8)}
+.bdg.z{color:#2F5B3C;border-color:#BFD3BB;background:rgba(239,245,238,.8)}
+.bdg.m{color:#7A5A1E;border-color:#D8C28D;background:rgba(248,240,220,.8)}
+.bdg.h{color:#7A4A8A;border-color:#CBB6D8;background:rgba(244,237,248,.8)}
+.xbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.xbar>i{color:var(--brass-d);font-size:19px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* ═════════════ 6) لوحة التحكم ═════════════ */
+.hello{font-family:var(--hero);font-size:31px;font-weight:600;line-height:1.35}
+.today{color:var(--ink2);font-size:13.5px;margin-top:4px}
+.statbar{display:flex;flex-wrap:wrap;background:var(--card);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+ border:1px solid var(--line);border-radius:16px;margin:22px 0 20px;overflow:hidden;box-shadow:var(--sh);animation:rise .45s .05s cubic-bezier(.2,.7,.3,1) both}
+.stat{flex:1 1 150px;padding:18px 22px;border-inline-end:1px solid var(--line);position:relative}
+.stat:last-child{border-inline-end:none}
+.stat::after{content:'';position:absolute;inset-inline-start:0;bottom:0;width:0;height:2px;background:linear-gradient(90deg,var(--brass),transparent);transition:.4s}
+.stat:hover::after{width:100%}
+.stat b{display:block;font-family:var(--disp);font-size:35px;line-height:1.15;font-weight:600}
+@supports((-webkit-background-clip:text) or (background-clip:text)){
+ .stat b{background:linear-gradient(140deg,#8A6420 5%,#2E5B3C 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+}
+.stat span{font-size:12px;color:var(--ink2);letter-spacing:var(--ls)}
+.dash-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.panel{background:var(--card);-webkit-backdrop-filter:blur(14px) saturate(1.15);backdrop-filter:blur(14px) saturate(1.15);
+ border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--sh);animation:rise .45s .1s cubic-bezier(.2,.7,.3,1) both}
+.panel h4{font-size:14px;letter-spacing:var(--ls);text-transform:uppercase;color:var(--ink2);margin-bottom:12px;display:flex;gap:8px;align-items:center}
+.pulse-row{display:grid;grid-template-columns:112px 1fr 56px;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.pulse-row:last-child{border-bottom:none}
+.pulse-row .nm{font-size:13.5px;font-weight:600}
+.pulse-bar{height:8px;background:rgba(226,216,194,.7);border-radius:99px;overflow:hidden}
+.pulse-bar i{display:block;height:100%;background:linear-gradient(90deg,#3B7352,#A17A33);border-radius:99px;transition:width .6s}
+.pulse-row .vl{font-family:var(--disp);font-size:16px;text-align:end}
+.log-item{display:flex;gap:11px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px;align-items:flex-start}
+.log-item:last-child{border-bottom:none}
+.log-dot{width:8px;height:8px;border-radius:50%;background:var(--brass);margin-top:7px;flex:none;box-shadow:0 0 0 3px rgba(161,122,51,.18)}
+.log-item .when{color:var(--ink2);font-size:12px;display:block}
+.fest-banner{margin-top:20px;position:relative;overflow:hidden;border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+ background:linear-gradient(150deg,rgba(34,49,33,.96),rgba(19,28,21,.97));border:1px solid rgba(188,147,71,.35);box-shadow:var(--sh);animation:rise .5s .15s cubic-bezier(.2,.7,.3,1) both}
+.fest-banner::before{content:'';position:absolute;inset:0;opacity:.6;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='none' stroke='%23EDE7D6' stroke-opacity='.06' stroke-width='1'%3E%3Crect x='28' y='28' width='34' height='34'/%3E%3Crect x='28' y='28' width='34' height='34' transform='rotate(45 45 45)'/%3E%3C/g%3E%3C/svg%3E")}
+.fest-banner::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;top:-140px;inset-inline-end:-90px;
+ background:radial-gradient(circle,rgba(188,147,71,.3),transparent 70%);filter:blur(8px)}
+.fest-banner>*{position:relative}
+.fest-banner h3{font-family:var(--disp);font-size:22px;color:#fff}
+.fest-banner .fb-sub{color:rgba(237,231,214,.72);font-size:13.5px;margin-top:5px}
+.fest-banner .fb-line{width:46px;height:3px;background:linear-gradient(90deg,#BC9347,transparent);border-radius:2px;margin-bottom:10px}
+
+/* ═════════════ 7) المهرجانية ═════════════ */
+.fest-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.fest-date{color:var(--brass-d);font-weight:600;font-size:13.5px;display:flex;gap:7px;align-items:center;margin-bottom:5px}
+.fest-head h3{font-family:var(--disp);font-size:27px}
+.prog{background:var(--card);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);
+ border-radius:16px;padding:8px 24px 18px;margin-bottom:20px;box-shadow:var(--sh);animation:rise .45s cubic-bezier(.2,.7,.3,1) both}
+.prog-head{display:flex;align-items:center;gap:12px;border-bottom:2px solid var(--line2);padding:14px 0 12px;margin-bottom:6px}
+.prog-head h4{font-family:var(--disp);font-size:20px;font-weight:600}
+.prog-head .cnt{font-family:var(--disp);font-size:14px;color:var(--brass-d);border:1px solid var(--line2);border-radius:99px;padding:0 11px;background:rgba(248,240,220,.7)}
+.act-row{display:flex;gap:18px;align-items:flex-start;padding:15px 0;border-bottom:1px dashed var(--line);border-radius:8px;transition:background .15s}
+.act-row:hover{background:rgba(161,122,51,.06)}
+.act-row:last-child{border-bottom:none}
+.act-num{font-family:var(--disp);font-size:23px;color:var(--brass);width:40px;flex:none;line-height:1.2}
+.act-main{flex:1;min-width:0}
+.act-main h5{font-size:16.5px;font-weight:700}
+.act-desc{color:var(--ink2);font-size:13px;margin-top:2px}
+.act-who{font-size:13.5px;margin-top:5px;display:flex;gap:7px;align-items:center;color:var(--green);font-weight:500}
+.act-min{flex:none;color:var(--ink2);font-size:13px;text-align:center;min-width:52px;padding-top:6px}
+.act-min b{display:block;font-family:var(--disp);font-size:18px;color:var(--ink)}
+.act-tools{display:flex;gap:2px;flex:none}
+.add-act{margin-top:12px}
+
+/* ═════════════ 8) القراءات ═════════════ */
+.spark-card{position:relative;overflow:hidden;border-radius:18px;padding:24px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;
+ background:linear-gradient(150deg,rgba(34,49,33,.96),rgba(19,28,21,.97));border:1px solid rgba(188,147,71,.4);box-shadow:var(--sh);animation:rise .45s cubic-bezier(.2,.7,.3,1) both}
+.spark-card::before{content:'';position:absolute;inset:0;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Cg fill='none' stroke='%23EDE7D6' stroke-opacity='.07' stroke-width='1'%3E%3Crect x='28' y='28' width='34' height='34'/%3E%3Crect x='28' y='28' width='34' height='34' transform='rotate(45 45 45)'/%3E%3Ccircle cx='45' cy='45' r='5'/%3E%3C/g%3E%3C/svg%3E")}
+.spark-card::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;top:-130px;inset-inline-end:-80px;
+ background:radial-gradient(circle,rgba(188,147,71,.38),transparent 70%);filter:blur(10px)}
+.spark-card>*{position:relative}
+.spark-card h3{font-family:var(--disp);font-size:23px;color:#fff}
+.spark-card p{color:rgba(237,231,214,.72);font-size:13.5px;margin-top:6px}
+.rd-grid{display:grid;grid-template-columns:1fr 300px;gap:18px;align-items:start}
+.top-row{display:grid;grid-template-columns:56px 1fr 52px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--line)}
+.top-row:last-child{border-bottom:none}
+.top-row .rk{font-family:var(--disp);font-size:17px;color:var(--brass-d);text-align:center}
+.top-row .nm{font-size:13.5px;font-weight:600}
+.top-row .ay{font-family:var(--disp);font-size:15px;text-align:end;color:var(--ink2)}
+
+/* ═════════════ 9) النماذج ═════════════ */
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.96)}}
+.mback{position:fixed;inset:0;background:rgba(24,32,22,.45);display:flex;align-items:center;justify-content:center;z-index:60;padding:18px;
+ -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:fade .2s}
+.modal{background:rgba(255,253,246,.95);-webkit-backdrop-filter:blur(22px) saturate(1.2);backdrop-filter:blur(22px) saturate(1.2);
+ border-radius:18px;width:min(530px,100%);max-height:90vh;overflow:auto;padding:24px 26px;
+ border:1px solid rgba(255,255,255,.75);box-shadow:0 44px 90px -30px rgba(18,26,14,.55);animation:pop .3s cubic-bezier(.18,.9,.28,1.12)}
+.modal.wide{width:min(880px,100%)}
+.mtitle{font-family:var(--disp);font-size:21px;margin-bottom:4px}
+.msub{color:var(--ink2);font-size:13px;margin-bottom:8px}
+.mfoot{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:22px}
+.sheet-box{border:1px solid var(--line2);border-radius:12px;margin-top:12px;max-height:52vh;overflow:auto;background:#FFFDF8;box-shadow:inset 0 2px 8px rgba(32,45,28,.06)}
+
+/* ═════════════ 10) شاشة الدخول ═════════════ */
+.login-wrap{display:grid;grid-template-columns:1.05fr 1fr;min-height:100vh}
+.login-side{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:54px;overflow:hidden;
+ background:linear-gradient(160deg,rgba(32,46,30,.95),rgba(17,26,18,.97));border-inline-end:1px solid rgba(188,147,71,.3)}
+.login-side .pattern{position:absolute;inset:0;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'%3E%3Cg fill='none' stroke='%23EDE7D6' stroke-opacity='.08' stroke-width='1'%3E%3Crect x='33' y='33' width='44' height='44'/%3E%3Crect x='33' y='33' width='44' height='44' transform='rotate(45 55 55)'/%3E%3Ccircle cx='55' cy='55' r='6'/%3E%3Cpath d='M55 11V0M55 99v11M11 55H0M99 55h11'/%3E%3C/g%3E%3Cg fill='none' stroke='%23BC9347' stroke-opacity='.12' stroke-width='1'%3E%3Ccircle cx='0' cy='0' r='34'/%3E%3Ccircle cx='110' cy='110' r='34'/%3E%3C/g%3E%3C/svg%3E")}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);animation:orbFloat 16s ease-in-out infinite alternate;will-change:transform}
+.orb.o1{width:360px;height:360px;top:-90px;left:-70px;background:radial-gradient(circle,rgba(188,147,71,.42),transparent 70%)}
+.orb.o2{width:420px;height:420px;bottom:-160px;right:-110px;background:radial-gradient(circle,rgba(52,102,64,.5),transparent 70%);animation-delay:-8s}
+@keyframes orbFloat{to{transform:translate(34px,26px) scale(1.12)}}
+.login-side>*{position:relative}
+.login-brand svg{color:#BC9347;width:54px;height:54px;filter:drop-shadow(0 4px 16px rgba(188,147,71,.55))}
+.login-brand h1{font-family:var(--hero);font-size:32px;margin-top:20px;line-height:1.4;color:#fff}
+.login-brand p{color:rgba(237,231,214,.62);margin-top:10px;font-size:14px}
+.login-quote blockquote{font-family:'Amiri Quran',serif;font-size:37px;line-height:2.05;color:#F2E9D2;text-shadow:0 2px 22px rgba(0,0,0,.3)}
+.login-quote span{display:block;font-size:13px;color:#C9A24B;margin-top:10px;letter-spacing:.08em}
+.login-quote small{display:block;color:rgba(237,231,214,.55);margin-top:12px;font-size:13.5px}
+.login-form{display:flex;flex-direction:column;justify-content:center;padding:44px clamp(24px,7vw,90px);min-height:100vh;position:relative}
+.login-card{position:relative;overflow:hidden;background:rgba(255,253,246,.8);-webkit-backdrop-filter:blur(22px) saturate(1.25);backdrop-filter:blur(22px) saturate(1.25);
+ border:1px solid rgba(255,255,255,.75);border-radius:24px;padding:36px 34px;
+ box-shadow:0 36px 80px -34px rgba(24,34,20,.5);animation:rise .5s .1s cubic-bezier(.2,.7,.3,1) both}
+.login-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#2E5B3C,#BC9347,#2E5B3C)}
+.login-form h2{font-family:var(--disp);font-size:28px}
+.login-form .lf-sub{color:var(--ink2);margin:6px 0 26px;font-size:14px}
+.login-form .btn{width:100%;justify-content:center;margin-top:22px;padding:12px;font-size:15px}
+.lf-hint{margin-top:20px;font-size:12.5px;color:var(--ink2);background:rgba(248,240,220,.6);border:1px dashed var(--line2);border-radius:10px;padding:10px 14px}
+.login-lang{margin-top:24px;align-self:center}
+
+/* ═════════════ 11) أوراق التصدير (صلبة لالتقاط صورة/PDF نظيفة) ═════════════ */
+#exportStage{position:fixed;left:-9999px;top:0;width:840px;background:#FFFDF8}
+.ex-sheet{padding:38px 44px;background:#FFFDF8;font-family:var(--sans)}
+.ex-head{border-bottom:2.5px solid var(--ink);padding-bottom:16px;margin-bottom:16px;position:relative}
+.ex-head::after{content:'';position:absolute;bottom:-6px;left:0;right:0;height:1.5px;background:var(--brass)}
+.ex-school{font-family:var(--disp);font-size:24px;font-weight:600}
+.ex-title{font-family:var(--disp);font-size:17.5px;font-weight:600;margin-top:8px}
+.ex-sub{color:var(--ink2);font-size:12.5px;margin-top:4px}
+table.ext{width:100%;border-collapse:collapse;font-size:13.5px}
+.ext th{border:1px solid var(--ink);padding:7px 9px;text-align:start;background:#F3EDDD;font-size:12px;letter-spacing:var(--ls)}
+.ext td{border:1px solid #C9BC9C;padding:8px 9px}
+.ext .sig{width:130px;height:26px}
+.ex-sum{margin-top:12px;font-size:13.5px;font-weight:600}
+.ex-meta{margin-top:26px;padding-top:10px;border-top:1px solid #C9BC9C;display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink2);gap:12px;flex-wrap:wrap}
+.ex-note{margin-top:8px;font-size:12px;color:var(--ink2)}
+
+/* ═════════════ 12) توست ═════════════ */
+#toastRoot{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:100;display:flex;flex-direction:column;align-items:center}
+.toast{background:rgba(27,38,28,.93);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#F3EEDD;
+ padding:11px 22px;border-radius:12px;margin-top:10px;opacity:0;transform:translateY(10px);transition:.25s;
+ box-shadow:0 14px 34px rgba(0,0,0,.32);font-size:14px;max-width:90vw;border:1px solid rgba(188,147,71,.35)}
+.toast.show{opacity:1;transform:none}
+.toast.err{background:rgba(110,42,31,.94);border-color:rgba(201,131,111,.5)}
+
+/* ═════════════ 13) استجابة ═════════════ */
+@media(max-width:960px){
+ .app{grid-template-columns:1fr}
+ .side{position:static;height:auto;flex-direction:row;align-items:center;gap:6px;overflow-x:auto;padding:10px 12px}
+ .brand{border:none;padding:0;margin:0;flex:none}
+ .brand div,.uinfo{display:none}
+ .nav{display:flex;flex:none}
+ .nav a{border-inline-start:none;border-bottom:3px solid transparent;padding:9px 11px;flex:none}
+ .nav a:hover{transform:none}
+ .nav a.on{border-bottom-color:#C9A24B}
+ .nav a span{display:none}
+ .main{padding:20px 16px 60px}
+ .topbar{padding:14px 16px}
+ .dash-grid,.rd-grid{grid-template-columns:1fr}
+ .login-wrap{grid-template-columns:1fr}
+ .login-side{display:none}
+ .hide-m{display:none}
+ .hello{font-size:26px}
+ .pt{font-size:23px}
+}
+</style>
+</head>
+<body class="lang-am">
+<div class="aurora" aria-hidden="true"></div>
+<div class="lattice" aria-hidden="true"></div>
+<div class="lattice2" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div id="app"></div>
+<div id="exportStage"></div>
+<div id="toastRoot"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<script>
+/* ================================================================
+   1) بيانات القرآن: أسماء السور وعدد آياتها (لوحدة الزيادة في القراءة)
+================================================================ */
+const SURAHS=[["الفاتحة",7],["البقرة",286],["آل عمران",200],["النساء",176],["المائدة",120],["الأنعام",165],["الأعراف",206],["الأنفال",75],["التوبة",129],["يونس",109],["هود",123],["يوسف",111],["الرعد",43],["إبراهيم",52],["الحجر",99],["النحل",128],["الإسراء",111],["الكهف",110],["مريم",98],["طه",135],["الأنبياء",112],["الحج",78],["المؤمنون",118],["النور",64],["الفرقان",77],["الشعراء",227],["النمل",93],["القصص",88],["العنكبوت",69],["الروم",60],["لقمان",34],["السجدة",30],["الأحزاب",73],["سبأ",54],["فاطر",45],["يس",83],["الصافات",182],["ص",88],["الزمر",75],["غافر",85],["فصلت",54],["الشورى",53],["الزخرف",89],["الدخان",59],["الجاثية",37],["الأحقاف",35],["محمد",38],["الفتح",29],["الحجرات",18],["ق",45],["الذاريات",60],["الطور",49],["النجم",62],["القمر",55],["الرحمن",78],["الواقعة",96],["الحديد",29],["المجادلة",22],["الحشر",24],["الممتحنة",13],["الصف",14],["الجمعة",11],["المنافقون",11],["التغابن",18],["الطلاق",12],["التحريم",12],["الملك",30],["القلم",52],["الحاقة",52],["المعارج",44],["نوح",28],["الجن",28],["المزمل",20],["المدثر",56],["القيامة",40],["الإنسان",31],["المرسلات",50],["النبأ",40],["النازعات",46],["عبس",42],["التكوير",29],["الانفطار",19],["المطففين",36],["الانشقاق",25],["البروج",22],["الطارق",17],["الأعلى",19],["الغاشية",26],["الفجر",30],["البلد",20],["الشمس",15],["الليل",21],["الضحى",11],["الشرح",8],["التين",8],["العلق",19],["القدر",5],["البينة",8],["الزلزلة",8],["العاديات",11],["القارعة",11],["التكاثر",8],["العصر",3],["الهمزة",9],["الفيل",5],["قريش",4],["الماعون",7],["الكوثر",3],["الكافرون",6],["النصر",3],["المسد",5],["الإخلاص",4],["الفلق",5],["الناس",6]];
+
+/* ================================================================
+   2) الترجمة — الأمهرية (الأصلية) + العربية + الإنجليزية
+================================================================ */
+const I18N={
+am:{
+ appName:'ነሐሬ በጋ ቁርዓን ትምህርት ቤት', appShort:'ነሐሬ በጋ', motto:'የአስተማሪዎችና ተማሪዎች የአገልግሎት መዝገብ',
+ quoteTr:'ቁርዓንንም በትክክል ተነብብ።',
+ login:'መግቢያ', loginSub:'ወደ ሥራ መዝገብ ለመግባት መረጃዎን ያስገቡ', username:'የተጠቃሚ ስም', password:'መግቢያ ቃል', loginBtn:'ግባ',
+ loginFail:'የተጠቃሚ ስም ወይም መግቢያ ቃል አልተሳካም።', loginHint:'ዋና ተቆጣጣሪ፦ kiar / 095793 — የአስተማሪዎች መግቢያ በአስተማሪው አስተዳደር ይስተካከላል።',
+ logout:'ውጣ', supervisor:'ዋና ተቆጣጣሪ', teacherRole:'አስተማሪ',
+ installApp:'መተግበሪያን ተክል', installHint:'ከአሳሽ ምናሌው «Install app» ወይም «Add to Home screen» በመጫን መተግበሪያውን ማድረግ ይቻላል።',
+ dashHello:'እንኳን በደህና መጡ፣ {0}', dashToday:'ዛሬ',
+ statStudents:'ተማሪዎች', statTests:'ፈተናዎች', statAvg:'አጠቃላይ አማካይ', statAyat:'የተነበቡ አያቶች', statActs:'የመዝጊያ ትርኢቶች',
+ subjectPulse:'የትምህርት አካላት ውጤት', recentOps:'የመጨረሻ ስራዎች',
+ festBannerTitle:'የበጋ መዝጊያ መርሃ ግብር (ሙህርጃኒያ)', festBannerSub:'ቀን፦ {0} · {1} ትርኢቶች', viewProgram:'መርሃ ግብሩን ተመልከት',
+ navDashboard:'ዳሽቦርድ', navStudents:'ተማሪዎች', navTests:'ፈተናዎች እና ውጤቶች', navFestival:'የመዝጊያ ዝግጅት', navReadings:'የቁርዓን ተጨማሪ ንባብ', navReports:'ሪፖርቶች', navTeachers:'አስተማሪዎች', navSettings:'ቅንብሮች',
+ add:'ጨምር', edit:'አስተካክል', delete:'አጥፋ', save:'አስቀምጥ', cancel:'ሰርዝ', back:'ተመለስ', search:'ፈልግ…', actions:'ተግባራት',
+ name:'ሙሉ ስም', senior:'ትላልቅ', junior:'ትንንሾች', allLevels:'ሁሉም', teacher:'አስተማሪ', date:'ቀን', notes:'ማስታወሻ', noData:'መረጃ የለም', ayatWord:'አያቶች',
+ copy:'ቅዳ', copied:'ወደ ቅንጥብ ሰሌዳ ተቀምጧል።', copyFail:'መቅዳት አልተቻለም።', image:'ምስል (PNG)', exportPdf:'PDF', exportFail:'ማውጣት አልተሳካም።',
+ confirmTitle:'ማረገጫ', deleteWarn:'ይህ ተግባር መመለስ አይቻልም። በእርግጥ ይፈልጋሉ?', savedOk:'በተሳካ ሁኔታ ተቀምጧል።', deletedOk:'ተሰርዟል።', fillAll:'እባክዎ አስፈላጊ መስኮችን ይሙሉ።', presentCount:'ብዛት፦ {0}',
+ studentsTitle:'የተማሪዎች መዝገብ', studentsSub:'ምዝገባ፣ ማስተካከያ እና አስተዳደር', addStudent:'አዲስ ተማሪ መዝግብ', editStudent:'የተማሪ መረጃ ማስተካከያ', guardian:'የቤተሰብ አባል', phone:'ስልክ ቁጥር', assignTeacher:'የተመደበለት አስተማሪ', noTeacher:'—',
+ testsTitle:'ፈተናዎች እና ውጤቶች', testsSub:'የፈተና መዝገብ፣ ከፍተኛ ነጥብ እና ውጤት ምዝገባ', addTest:'አዲስ ፈተና', editTest:'ፈተና ማስተካከያ', testTitle:'የፈተና ርዕስ', testSubject:'የትምህርት አካል', typeQuran:'የቁርዓን ፈተና', typeSubject:'የትምህርት አካል ፈተና', testLevel:'ክፍል', maxScore:'ከፍተኛ ነጥብ (መሠረት)', maxScoreHint:'ለምሳሌ፦ 10፣ 25፣ 50 ወይም 100 — ውጤቱ ከዚህ መሠረት ይሰላል።', testDate:'የፈተና ቀን', registered:'{0} ተማሪዎች', enterScores:'ውጤት ምዝገባ', outOf:'ከ {0}', deleteTestWarn:'ፈተናው ሲሰረዝ ውጤቶቹም አብረው ይሰረዛሉ።', saveScores:'ውጤቶችን አስቀምጥ', scoreCol:'ነጥብ', pctCol:'መቶኛ', noteCol:'ማስታወሻ', avgRow:'አማካይ', noScores:'እስካሁን ውጤት አልተመዘገበም።',
+ subject_quran:'ቁርዓን', subject_fiqh:'ፊቅህ', subject_aqidah:'አቂዳ', subject_sirah:'ሲራ', subject_tajweed:'ታጅዊድ', subject_akhlaq:'ሥነ ምግባር', subject_hadith:'ሐዲስ', subject_other:'ሌላ',
+ attendanceSheet:'የመገኘት ወረቀት', signature:'ፊርማ', attendeeName:'የተሳታፊ ስም', scoresSheet:'የውጤት መዝገብ',
+ festivalTitle:'የበጋ መዝጊያ ዝግጅት (ሙህርጃኒያ)', festivalSub:'ለማህበረሰቡ የሚቀርቡ ትርኢቶች — የቀኑ መርሃ ግብር', seniorProgram:'የትላልቆች ክፍል', juniorProgram:'የትንንሾች ክፍል', addActivity:'አዲስ ትርኢት', editActivity:'ትርኢት ማስተካከያ', activityDesc:'ገለጻ', participantsLabel:'ተሳታፊዎች (በየመስመር አንድ ስም)', participantsHint:'የእያንዳንዱን ተሳታፊ ስም በአንድ መስመር ይጻፉ', minutes:'የጊዜ ገደብ (ደቂቃ)', programSheet:'የመርሃ ግብር ቅጂ', attendanceAllSheet:'የሁሉም ተሳታፊዎች መገኘት', minShort:'ደ.ቂ', festDateLabel:'የመዝጊያ ቀን',
+ readingsTitle:'የቁርዓን ተጨማሪ ንባብ', readingsSub:'ሙሉ ለራሱ የሚቆም ክፍል — በፈተና ውጤት ስሌት አይገባም', independentNote:'የዚህ ክፍል መዝገቦች በፈተና ውጤቶች ላይ ምንም ተጽዕኖ አይኖራቸውም — ሙሉ ነጻ ነው።', newReading:'አዲስ ንባብ መዝግብ', readingStudent:'ተማሪ', readingKind:'የንባብ ዓይነት', kindZ:'ተጨማሪ (ዚያዳ)', kindM:'መልሶ ንባብ', kindH:'ሥር በቃል (ሂፍዝ)', surah:'ሱራ', fromAyah:'ከ አያት', toAyah:'እስከ አያት', ayatLabel:'{0} አያቶች', listenedBy:'ያዳመጠለት', readingDate:'ቀን', topReaders:'ከፍተኛ ንባብ ያላቸው ተማሪዎች', totalAyatCol:'ጠቅላላ አያቶች', readingsLog:'የንባብ መዝገብ', kindCol:'ዓይነት',
+ reportsTitle:'ሪፖርቶች', reportsSub:'የተማሪ ካርድ እና የመገኘት ወረቆች', pickStudent:'ተማሪ ይምረጡ', showReport:'ሪፖርት አሳይ', reportFor:'የውጤት ሪፖርት — {0}', studentLevel:'ክፍል', studentTeacher:'አስተማሪ', studentAvg:'አማካይ መቶኛ', rank:'ደረጃ በክፍል', testsTaken:'የተሳተፉ ፈተናዎች', quickSheets:'ፈጣን ወረቆች', sheetFor:'ለ፦ {0}', noReport:'ሪፖርት ለማሳየት ተማሪ ይምረጡ።',
+ teachersTitle:'የአስተማሪዎች አስተዳደር', teachersSub:'ምዝገባ፣ ማስተካከያ እና የመግቢያ ቃል ማስተካከያ — ለዋና ተቆጣጣሪው ብቻ', addTeacher:'አዲስ አስተማሪ', editTeacher:'የአስተማሪ ማስተካከያ', tUsername:'የመግቢያ ስም', tPass:'መግቢያ ቃል', tPassNew:'አዲስ መግቢያ ቃል (ባዶ ከሆነ አይቀየርም)', tSubject:'የሙያ መስክ', statusCol:'ሁኔታ', activeStat:'ንቁ', inactiveStat:'ተገብሯል', cannotDeleteSelf:'የራስዎን መዝገብ መሰረዝ አይቻልም።', deleteTeacherWarn:'የአስተማሪው ተማሪዎች ያለ አስተማሪ ይቀራሉ።', usernameTaken:'የመግቢያ ስሙ ቀድሞ ተጠቅሷል።', studentsCol:'ተማሪዎች',
+ settingsTitle:'ቅንብሮች', schoolLabel:'የትምህርት ቤቱ ስም (ባዶ ከሆነ ቋሚው ስም ይጠቀማል)', langLabel:'ቋንቋ / اللغة / Language', backupTitle:'መረጃ አስቀምጥ / መልስ', backupSub:'መላውን መረጃ እንደ JSON ፋይል ማውጣት ወይም መልሶ ማስገባት ይቻላል።', exportBackup:'ኮፒ አውጣ (JSON)', importBackup:'ኮፒ መልስ', importedOk:'መረጃው በተሳካ ሁኔታ ተመልሷል።', importFail:'ፋይሉ አይኖርም።', resetAll:'ወደ መነሻ መመለስ', resetWarn:'ሁሉም መረጃ ጠፍቶ ወደ መነሻ ሁኔታ ይመለሳል። በእርግጥ ይፈልጋሉ?'
+},
+ar:{
+ appName:'مدرسة النور الصيفية القرآنية', appShort:'النور الصيفي', motto:'سجل إدارة ومتابعة الأساتذة والطلاب',
+ quoteTr:'',
+ login:'تسجيل الدخول', loginSub:'أدخل بياناتك للوصول إلى لوحة الإدارة', username:'اسم المستخدم', password:'كلمة المرور', loginBtn:'دخول',
+ loginFail:'اسم المستخدم أو كلمة المرور غير صحيحة.', loginHint:'حساب المشرف العام: kiar / 095793 — حسابات الأساتذة يدعمها المشرف.',
+ logout:'خروج', supervisor:'المشرف العام', teacherRole:'أستاذ',
+ installApp:'تثبيت التطبيق', installHint:'يمكن تثبيت التطبيق من قائمة المتصفح عبر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».',
+ dashHello:'أهلاً بك، {0}', dashToday:'اليوم',
+ statStudents:'الطلاب', statTests:'الاختبارات', statAvg:'المتوسط العام', statAyat:'آيات القراءة (الزيادة)', statActs:'أنشطة المهرجانية',
+ subjectPulse:'نبض المواد', recentOps:'آخر العمليات',
+ festBannerTitle:'يوم اختتام الصيف — المهرجانية', festBannerSub:'التاريخ: {0} · {1} نشاطاً', viewProgram:'استعراض البرنامج',
+ navDashboard:'لوحة التحكم', navStudents:'الطلاب', navTests:'الاختبارات والدرجات', navFestival:'المهرجانية', navReadings:'زيادة القراءة', navReports:'التقارير', navTeachers:'الأساتذة', navSettings:'الإعدادات',
+ add:'إضافة', edit:'تعديل', delete:'حذف', save:'حفظ', cancel:'إلغاء', back:'رجوع', search:'بحث…', actions:'إجراءات',
+ name:'الاسم الكامل', senior:'الكبار', junior:'الصغار', allLevels:'الكل', teacher:'الأستاذ', date:'التاريخ', notes:'ملاحظات', noData:'لا توجد بيانات', ayatWord:'آية',
+ copy:'نسخ', copied:'تم النسخ إلى الحافظة.', copyFail:'تعذر النسخ.', image:'صورة (PNG)', exportPdf:'PDF', exportFail:'تعذر التصدير.',
+ confirmTitle:'تأكيد', deleteWarn:'هذا الإجراء لا يمكن التراجع عنه. هل أنت متأكد؟', savedOk:'تم الحفظ بنجاح.', deletedOk:'تم الحذف.', fillAll:'يرجى تعبئة الحقول المطلوبة.', presentCount:'العدد: {0}',
+ studentsTitle:'سجل الطلاب', studentsSub:'التسجيل والتعديل والإدارة', addStudent:'تسجيل طالب جديد', editStudent:'تعديل بيانات طالب', guardian:'ولي الأمر', phone:'رقم الهاتف', assignTeacher:'الأستاذ المسؤول', noTeacher:'—',
+ testsTitle:'الاختبارات والدرجات', testsSub:'سجل الاختبارات، الدرجة العظمى، وإدخال النتائج', addTest:'إنشاء اختبار', editTest:'تعديل اختبار', testTitle:'عنوان الاختبار', testSubject:'المادة', typeQuran:'اختبار قرآني', typeSubject:'اختبار مادة', testLevel:'القسم', maxScore:'الدرجة العظمى (الأساس)', maxScoreHint:'مثال: 10 أو 25 أو 50 أو 100 — تُحسب النسبة من هذا الأساس.', testDate:'تاريخ الاختبار', registered:'{0} طلاب', enterScores:'تسجيل الدرجات', outOf:'من {0}', deleteTestWarn:'حذف الاختبار يحذف درجاته المسجلة معه.', saveScores:'حفظ الدرجات', scoreCol:'الدرجة', pctCol:'النسبة', noteCol:'ملاحظة', avgRow:'المتوسط', noScores:'لم تُسجّل درجات بعد.',
+ subject_quran:'القرآن الكريم', subject_fiqh:'الفقه', subject_aqidah:'العقيدة', subject_sirah:'السيرة', subject_tajweed:'التجويد', subject_akhlaq:'الأخلاق', subject_hadith:'الحديث', subject_other:'أخرى',
+ attendanceSheet:'ورقة الحضور', signature:'التوقيع', attendeeName:'اسم الحاضر', scoresSheet:'كشف الدرجات',
+ festivalTitle:'يوم اختتام الصيف — المهرجانية', festivalSub:'عروض الطلاب أمام المجتمع — برنامج اليوم', seniorProgram:'قسم الكبار', juniorProgram:'قسم الصغار', addActivity:'نشاط جديد', editActivity:'تعديل النشاط', activityDesc:'الوصف', participantsLabel:'المشاركون (اسم في كل سطر)', participantsHint:'اكتب اسم كل طالب مشارك في سطر مستقل', minutes:'المدة (دقائق)', programSheet:'نسخة البرنامج', attendanceAllSheet:'حضور جميع المشاركين', minShort:'د', festDateLabel:'تاريخ الحفل',
+ readingsTitle:'الزيادة في القراءة', readingsSub:'وحدة مستقلة تماماً — لا تدخل في حساب الدرجات', independentNote:'سجلات هذه الوحدة لا تؤثر إطلاقاً على درجات الاختبارات — وحدة حرة مستقلة.', newReading:'تسجيل قراءة جديدة', readingStudent:'الطالب', readingKind:'نوع القراءة', kindZ:'زيادة', kindM:'مراجعة', kindH:'حفظ', surah:'السورة', fromAyah:'من آية', toAyah:'إلى آية', ayatLabel:'{0} آية', listenedBy:'المستمع (الأستاذ)', readingDate:'التاريخ', topReaders:'الأكثر زيادة في القراءة', totalAyatCol:'مجموع الآيات', readingsLog:'سجل القراءات', kindCol:'النوع',
+ reportsTitle:'التقارير', reportsSub:'كشوف الطلاب وأوراق الحضور', pickStudent:'اختر طالباً', showReport:'عرض التقرير', reportFor:'كشف درجات — {0}', studentLevel:'القسم', studentTeacher:'الأستاذ', studentAvg:'المتوسط', rank:'الترتيب في القسم', testsTaken:'الاختبارات المشارَك بها', quickSheets:'أوراق سريعة', sheetFor:'لـ: {0}', noReport:'اختر طالباً لعرض تقريره.',
+ teachersTitle:'إدارة الأساتذة', teachersSub:'التسجيل والتعديل وكلمات المرور — للمشرف العام فقط', addTeacher:'إضافة أستاذ', editTeacher:'تعديل بيانات أستاذ', tUsername:'اسم المستخدم', tPass:'كلمة المرور', tPassNew:'كلمة مرور جديدة (تُتجاهل إن تُركت فارغة)', tSubject:'التخصص', statusCol:'الحالة', activeStat:'نشط', inactiveStat:'موقوف', cannotDeleteSelf:'لا يمكنك حذف حسابك الخاص.', deleteTeacherWarn:'سيبقى طلاب هذا الأستاذ بدون أستاذ مسؤول.', usernameTaken:'اسم المستخدم مستخدم مسبقاً.', studentsCol:'الطلاب',
+ settingsTitle:'الإعدادات', schoolLabel:'اسم المدرسة (فارغ = الاسم الافتراضي)', langLabel:'اللغة / ቋንቋ / Language', backupTitle:'النسخ الاحتياطي', backupSub:'تصدير كامل البيانات كملف JSON أو استعادته.', exportBackup:'تصدير نسخة (JSON)', importBackup:'استيراد نسخة', importedOk:'تمت استعادة البيانات بنجاح.', importFail:'ملف غير صالح.', resetAll:'إعادة ضبط المصنع', resetWarn:'سيتم حذف كل البيانات والعودة للحالة الأولى. متأكد؟'
+},
+en:{
+ appName:'Al-Nour Summer Quranic School', appShort:'Al-Nour Summer', motto:'Management & follow-up record for teachers and students',
+ quoteTr:'“And recite the Quran with measured recitation.”',
+ login:'Sign in', loginSub:'Enter your credentials to access the management panel', username:'Username', password:'Password', loginBtn:'Sign in',
+ loginFail:'Wrong username or password.', loginHint:'Owner account: kiar / 095793 — teacher accounts are managed by the supervisor.',
+ logout:'Sign out', supervisor:'General Supervisor', teacherRole:'Teacher',
+ installApp:'Install app', installHint:'Use the browser menu “Install app” / “Add to Home screen” to install.',
+ dashHello:'Welcome, {0}', dashToday:'Today',
+ statStudents:'Students', statTests:'Tests', statAvg:'Overall average', statAyat:'Verses read (Ziyada)', statActs:'Festival activities',
+ subjectPulse:'Subject pulse', recentOps:'Recent operations',
+ festBannerTitle:'Summer Closing Day — Festival', festBannerSub:'Date: {0} · {1} activities', viewProgram:'View program',
+ navDashboard:'Dashboard', navStudents:'Students', navTests:'Tests & Scores', navFestival:'Festival', navReadings:'Quran Ziyada', navReports:'Reports', navTeachers:'Teachers', navSettings:'Settings',
+ add:'Add', edit:'Edit', delete:'Delete', save:'Save', cancel:'Cancel', back:'Back', search:'Search…', actions:'Actions',
+ name:'Full name', senior:'Seniors', junior:'Juniors', allLevels:'All', teacher:'Teacher', date:'Date', notes:'Notes', noData:'No data', ayatWord:'ayat',
+ copy:'Copy', copied:'Copied to clipboard.', copyFail:'Copy failed.', image:'Image (PNG)', exportPdf:'PDF', exportFail:'Export failed.',
+ confirmTitle:'Confirm', deleteWarn:'This action cannot be undone. Are you sure?', savedOk:'Saved successfully.', deletedOk:'Deleted.', fillAll:'Please fill the required fields.', presentCount:'Count: {0}',
+ studentsTitle:'Students Registry', studentsSub:'Registration, editing and management', addStudent:'Register student', editStudent:'Edit student', guardian:'Guardian', phone:'Phone', assignTeacher:'Assigned teacher', noTeacher:'—',
+ testsTitle:'Tests & Scores', testsSub:'Test records, max score and grade entry', addTest:'New test', editTest:'Edit test', testTitle:'Test title', testSubject:'Subject', typeQuran:'Quran test', typeSubject:'Subject test', testLevel:'Section', maxScore:'Max score (base)', maxScoreHint:'e.g. 10, 25, 50 or 100 — percentages are computed from this base.', testDate:'Test date', registered:'{0} students', enterScores:'Enter scores', outOf:'out of {0}', deleteTestWarn:'Deleting the test removes its recorded scores.', saveScores:'Save scores', scoreCol:'Score', pctCol:'Percent', noteCol:'Note', avgRow:'Average', noScores:'No scores recorded yet.',
+ subject_quran:'Quran', subject_fiqh:'Fiqh', subject_aqidah:'Aqidah', subject_sirah:'Sirah', subject_tajweed:'Tajweed', subject_akhlaq:'Akhlaq', subject_hadith:'Hadith', subject_other:'Other',
+ attendanceSheet:'Attendance sheet', signature:'Signature', attendeeName:'Attendee name', scoresSheet:'Score sheet',
+ festivalTitle:'Summer Closing Day — Festival', festivalSub:'Student performances before the community — day program', seniorProgram:'Seniors section', juniorProgram:'Juniors section', addActivity:'New activity', editActivity:'Edit activity', activityDesc:'Description', participantsLabel:'Participants (one name per line)', participantsHint:'Write each participating student on a separate line', minutes:'Duration (minutes)', programSheet:'Program copy', attendanceAllSheet:'All participants attendance', minShort:'min', festDateLabel:'Festival date',
+ readingsTitle:'Quran Ziyada (Extra Reading)', readingsSub:'A fully independent module — never counted in grades', independentNote:'Records in this module have zero effect on test scores — completely standalone.', newReading:'Record new reading', readingStudent:'Student', readingKind:'Reading type', kindZ:'Ziyada (extra)', kindM:'Review (Muraja‘a)', kindH:'Memorization (Hifz)', surah:'Surah', fromAyah:'From ayah', toAyah:'To ayah', ayatLabel:'{0} ayat', listenedBy:'Listened by', readingDate:'Date', topReaders:'Top readers', totalAyatCol:'Total ayat', readingsLog:'Reading log', kindCol:'Type',
+ reportsTitle:'Reports', reportsSub:'Student report cards and attendance sheets', pickStudent:'Choose a student', showReport:'Show report', reportFor:'Score report — {0}', studentLevel:'Section', studentTeacher:'Teacher', studentAvg:'Average', rank:'Rank in section', testsTaken:'Tests taken', quickSheets:'Quick sheets', sheetFor:'For: {0}', noReport:'Choose a student to view the report.',
+ teachersTitle:'Teachers Management', teachersSub:'Registration, editing and passwords — supervisor only', addTeacher:'Add teacher', editTeacher:'Edit teacher', tUsername:'Username', tPass:'Password', tPassNew:'New password (ignored if empty)', tSubject:'Field', statusCol:'Status', activeStat:'Active', inactiveStat:'Suspended', cannotDeleteSelf:'You cannot delete your own account.', deleteTeacherWarn:'This teacher’s students will remain unassigned.', usernameTaken:'Username already taken.', studentsCol:'Students',
+ settingsTitle:'Settings', schoolLabel:'School name (empty = default)', langLabel:'ቋንቋ / اللغة / Language', backupTitle:'Backup', backupSub:'Export all data as a JSON file or restore it.', exportBackup:'Export backup (JSON)', importBackup:'Import backup', importedOk:'Data restored successfully.', importFail:'Invalid file.', resetAll:'Factory reset', resetWarn:'All data will be erased and reset. Are you sure?'
+}};
+
+/* ================================================================
+   3) الحالة والأدوات العامة
+================================================================ */
+let LANG=localStorage.getItem('nslang')||'am';
+const S={user:null,page:'dashboard',gradingTest:null,stQ:'',stL:'all',stT:'all',testLevel:'all',reportStudent:''};
+const byId=(a,id)=>a.find(x=>x.id===id);
+const rmv=(a,id)=>{const i=a.findIndex(x=>x.id===id);if(i>-1)a.splice(i,1)};
+const uid=p=>p+Math.random().toString(36).slice(2,8);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pHash=s=>{let h=5381;for(const c of String(s))h=((h*33)^c.codePointAt(0))>>>0;return h.toString(36)};
+const t=(k,...a)=>{let s=(I18N[LANG]&&I18N[LANG][k])??I18N.en[k]??k;a.forEach((v,i)=>s=String(s).split('{'+i+'}').join(v));return s};
+const isoAgo=n=>new Date(Date.now()-n*864e5).toISOString().slice(0,10);
+const todayISO=()=>new Date().toISOString().slice(0,10);
+function fmtDate(iso){if(!iso)return'—';try{return new Intl.DateTimeFormat(LANG==='am'?'am-ET':LANG==='ar'?'ar':'en-GB',{day:'numeric',month:'long',year:'numeric'}).format(new Date(iso+'T12:00:00'))}catch(e){return iso}}
+function ethToday(){try{return new Intl.DateTimeFormat('am-ET-u-ca-ethiopic',{day:'numeric',month:'long',year:'numeric'}).format(new Date())}catch(e){return''}}
+function fmtWhen(ts){const d=new Date(ts),n=new Date();if(d.toDateString()===n.toDateString())return new Intl.DateTimeFormat(LANG==='am'?'am-ET':LANG,{hour:'2-digit',minute:'2-digit'}).format(d);return fmtDate(d.toISOString().slice(0,10))}
+
+/* ================================================================
+   4) قاعدة البيانات + البيانات الأولية
+================================================================ */
+const DBKEY='nour_summer_v1';
+let DB=null;
+function seedDB(){
+ let sr=9;const rnd=()=>{sr=(sr*1103515245+12345)>>>0;return((sr>>>16)%1000)/1000};
+ const isoA=n=>isoAgo(n);
+ const db={
+  settings:{schoolName:'',festivalDate:isoAgo(-21)},
+  users:[
+   {id:'u1',username:'kiar',pass:pHash('095793'),name:'كيار',role:'owner',subject:'الإشراف العام',active:true},
+   {id:'u2',username:'jehad',pass:pHash('123456'),name:'أ. جهاد أحمد',role:'teacher',subject:'القرآن الكريم والتجويد',active:true},
+   {id:'u3',username:'hassan',pass:pHash('123456'),name:'أ. حسن',role:'teacher',subject:'الفقه',active:true},
+   {id:'u4',username:'mnour',pass:pHash('123456'),name:'أ. محمد نور سبو',role:'teacher',subject:'العقيدة',active:true},
+   {id:'u5',username:'mhassan',pass:pHash('123456'),name:'أ. محمد حسن',role:'teacher',subject:'السيرة النبوية',active:true},
+   {id:'u6',username:'kamal',pass:pHash('123456'),name:'أ. خيار كمال',role:'teacher',subject:'القرآن — قسم الصغار',active:true}
+  ],
+  students:[
+   {id:'s1',name:'ዩሱፍ አማን',level:'senior',teacherId:'u2',guardian:'አማን ሀሰን',phone:'0911223344',notes:''},
+   {id:'s2',name:'አሕመድ ኑር',level:'senior',teacherId:'u3',guardian:'ኑር ጃሚል',phone:'0912233455',notes:''},
+   {id:'s3',name:'ሐናን ተወፍቅ',level:'senior',teacherId:'u4',guardian:'ተወፍቅ ግርማ',phone:'0913344566',notes:''},
+   {id:'s4',name:'ቢላል ሁሴን',level:'senior',teacherId:'u5',guardian:'ሁሴን አሊ',phone:'0914455677',notes:''},
+   {id:'s5',name:'ፋጢማ አቡበከር',level:'senior',teacherId:'u6',guardian:'አቡበከር ኦመር',phone:'0915566788',notes:''},
+   {id:'s6',name:'ኦስማን መሀመድ',level:'senior',teacherId:'u2',guardian:'መሀመድ እውነት',phone:'0916677899',notes:''},
+   {id:'s7',name:'ሰላማዊት ከበደ',level:'junior',teacherId:'u6',guardian:'ከበደ ወልደ',phone:'0917788900',notes:''},
+   {id:'s8',name:'ዑመር አሊ',level:'junior',teacherId:'u5',guardian:'አሊ ሙሳ',phone:'0918899011',notes:''},
+   {id:'s9',name:'ደስታ ወልደ',level:'junior',teacherId:'u3',guardian:'ወልደ ኪሮስ',phone:'0919900122',notes:''},
+   {id:'s10',name:'ሚና ሀሰን',level:'junior',teacherId:'u4',guardian:'ሀሰን ጃብር',phone:'0921011233',notes:''},
+   {id:'s11',name:'ኢብራሂም ጃማል',level:'junior',teacherId:'u2',guardian:'ጃማል ዑመር',phone:'0922122344',notes:''},
+   {id:'s12',name:'ሩት አሕመድ',level:'junior',teacherId:'u6',guardian:'አሕመድ ነጋ',phone:'0923233455',notes:''}
+  ],
+  tests:[
+   {id:'t1',title:'الاختبار القرآني الشامل — حفظ وتلاوة',subject:'quran',type:'quran',level:'senior',max:100,date:isoA(3),by:'كيار'},
+   {id:'t2',title:'اختبار الفقه — الطهارة والصلاة',subject:'fiqh',type:'subject',level:'senior',max:25,date:isoA(5),by:'أ. حسن'},
+   {id:'t3',title:'اختبار العقيدة — أركان الإيمان',subject:'aqidah',type:'subject',level:'senior',max:25,date:isoA(6),by:'أ. محمد نور سبو'},
+   {id:'t4',title:'اختبار السيرة النبوية',subject:'sirah',type:'subject',level:'senior',max:25,date:isoA(7),by:'أ. محمد حسن'},
+   {id:'t5',title:'اختبار التجويد — أحكام التلاوة',subject:'tajweed',type:'subject',level:'senior',max:10,date:isoA(4),by:'أ. جهاد أحمد'},
+   {id:'t6',title:'اختبار الأخلاق والآداب',subject:'akhlaq',type:'subject',level:'senior',max:10,date:isoA(2),by:'أ. جهاد أحمد'},
+   {id:'t7',title:'اختبار الحديث — الأربعون النووية',subject:'hadith',type:'subject',level:'senior',max:25,date:isoA(1),by:'أ. محمد حسن'},
+   {id:'t8',title:'الاختبار القرآني الأساسي — جزء عمّ',subject:'quran',type:'quran',level:'junior',max:20,date:isoA(3),by:'أ. خيار كمال'}
+  ],
+  scores:[],activities:[],readings:[],
+  log:[{at:Date.now()-7200e3,by:'كيار',txt:'تهيئة النظام وإدخال البيانات الأساسية'}]
+ };
+ db.tests.forEach(tst=>{db.students.filter(s=>s.level===tst.level).forEach(s=>{if(rnd()<0.14)return;db.scores.push({id:uid('c'),testId:tst.id,studentId:s.id,score:Math.round(tst.max*(0.5+rnd()*0.5)*2)/2,note:'',by:db.users[Math.floor(rnd()*6)].name,at:Date.now()-864e5})})});
+ let o=0;const A=(section,title,desc,who,mins)=>({id:uid('a'),section,title,desc,participants:who.map(w=>({name:w})),mins,order:++o});
+ db.activities=[
+  A('senior','قصص الصحابة','قصة صحابي يختارها الطالب بنفسه',['ዩሱፍ አማን'],5),
+  A('senior','الشعر — الإلقاء','قصيدة في حب القرآن',['ሐናን ተወፍቅ'],4),
+  A('senior','الخطبة','خطبة قصيرة أمام الحضور',['አሕመድ ኑር'],6),
+  A('senior','فضائل القرآن','كلمة في فضل قراءة القرآن',['ፋጢማ አቡበከር'],5),
+  A('senior','الفقه — سؤال وجواب','مسائل فقهية بتحضير ذاتي (طالبان)',['ቢላል ሁሴን','ኦስማን መሀመድ'],8),
+  A('senior','العقيدة — تحضير ذاتي','عرض مسألة عقائدية بتحضير ذاتي',['ዩሱፍ አማን'],6),
+  A('senior','السيرة النبوية','موقف مختار من سيرة المصطفى ﷺ',['ቢላል ሁሴን'],5),
+  A('senior','التجويد','تلاوة مجوَّدة مع بيان الأحكام',['ኦስማን መሀመድ'],6),
+  A('junior','العقيدة — سؤال وجواب','أسئلة عقائدية مبسطة',['ሰላማዊት ከበደ','ዑመር አሊ'],5),
+  A('junior','الفقه — كيفية الصلاة','سؤال وجواب + عرض عملي لكيفية الصلاة',['ደስታ ወልደ','ሚና ሀሰን'],7),
+  A('junior','السيرة','قصة قصيرة من السيرة',['ኢብራሂም ጃማል'],4),
+  A('junior','التجويد','تلاوة قصيرة مراعية للأحكام',['ሩት አሕመድ'],4),
+  A('junior','الأخلاق','كلمة قصيرة عن خُلق حسن',['ዑመር አሊ'],3),
+  A('junior','القرآن الكريم — الحفظ','عرض تحفيظ قصار السور أمام الناس',['ሰላማዊት ከበደ','ደስታ ወልደ','ሚና ሀሰን','ኢብራሂም ጃማል','ሩት አሕመድ','ዑመር አሊ'],10),
+  A('junior','القرآن الكريم — القاعدة النورانية','الحروف الهجائية + الدرس الرابع والخامس: أبدا، أحد، أخذ، أذن، أمر — ليسمعوها للناس',['ሩት አሕመድ','ኢብራሂም ጃማል'],8)
+ ];
+ const R=(sid,kind,surah,from,to,by,d,note)=>({id:uid('r'),studentId:sid,kind,surah,from,to,ayat:to-from+1,listener:by,date:isoA(d),note:note||''});
+ db.readings=[
+  R('s1','z','البقرة',1,20,'أ. جهاد أحمد',2,'قراءة متقنة'),R('s1','m','الكهف',1,10,'أ. جهاد أحمد',1,''),
+  R('s2','z','آل عمران',15,35,'أ. جهاد أحمد',2,''),R('s3','h','يس',1,25,'أ. محمد حسن',3,'حفظ جديد'),
+  R('s4','m','الملك',1,20,'أ. محمد حسن',4,''),R('s5','z','ق',1,20,'أ. خيار كمال',1,''),
+  R('s7','z','النبأ',1,15,'أ. خيار كمال',2,''),R('s11','h','الفجر',1,10,'أ. جهاد أحمد',1,''),
+  R('s12','z','الشرح',1,8,'أ. خيار كمال',3,''),R('s6','m','الرحمن',1,15,'أ. جهاد أحمد',2,'')
+ ];
+ return db;
+}
+function loadDB(){const raw=localStorage.getItem(DBKEY);if(raw){try{DB=JSON.parse(raw);return}catch(e){}}DB=seedDB();saveDB()}
+function saveDB(){localStorage.setItem(DBKEY,JSON.stringify(DB))}
+function logAct(txt){DB.log.unshift({at:Date.now(),by:S.user?S.user.name:'—',txt});DB.log=DB.log.slice(0,60);saveDB()}
+
+/* ================================================================
+   5) الصلاحيات
+================================================================ */
+const isOwner=()=>S.user&&S.user.role==='owner';
+const canDelStudent=s=>isOwner()||(S.user&&S.user.role==='teacher'&&s.teacherId===S.user.id);
+
+/* ================================================================
+   6) إطار العرض والقشرة الرئيسية
+================================================================ */
+const LOGO=`<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="17" y="17" width="30" height="30"/><rect x="17" y="17" width="30" height="30" transform="rotate(45 32 32)"/><circle cx="32" cy="32" r="6.5"/></svg>`;
+function render(){const r=document.getElementById('app');r.innerHTML=S.user?viewShell():viewLogin();document.title=DB?school():I18N[LANG].appName}
+const school=()=>esc((DB.settings.schoolName||'').trim()||t('appName'));
+function setLang(l){LANG=l;localStorage.setItem('nslang',l);document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';document.body.className='lang-'+l;render()}
+function nav(p){S.page=p;if(p!=='tests')S.gradingTest=null;render();window.scrollTo(0,0)}
+function navItems(){const n=[['dashboard','ph-squares-four','navDashboard'],['students','ph-student','navStudents'],['tests','ph-file-text','navTests'],['festival','ph-confetti','navFestival'],['readings','ph-book-open-text','navReadings','spark'],['reports','ph-chart-bar','navReports']];if(isOwner())n.push(['teachers','ph-users-three','navTeachers']);n.push(['settings','ph-gear','navSettings']);return n}
+function pageTitle(){if(S.page==='tests'&&S.gradingTest){const x=byId(DB.tests,S.gradingTest);return t('enterScores')+(x?' — '+x.title:'')}const m={dashboard:t('navDashboard'),students:t('studentsTitle'),tests:t('testsTitle'),festival:t('festivalTitle'),readings:t('readingsTitle'),reports:t('reportsTitle'),teachers:t('teachersTitle'),settings:t('settingsTitle')};return m[S.page]||''}
+function viewShell(){
+ const u=S.user;
+ return `<div class="app">
+  <aside class="side">
+   <div class="brand">${LOGO}<div><b class="serif">${t('appShort')}</b><span>${t('motto')}</span></div></div>
+   <nav class="nav">${navItems().map(([p,ic,k,ex])=>`<a href="#" class="${S.page===p?'on ':''}${ex||''}" onclick="nav('${p}');return false"><i class="ph ${ic}"></i><span>${t(k)}</span></a>`).join('')}</nav>
+   <div class="uinfo"><div class="ui-ic"><i class="ph ph-${u.role==='owner'?'crown-simple':'identification-badge'}"></i></div><div><b>${esc(u.name)}</b><span>${u.role==='owner'?t('supervisor'):t('teacherRole')}</span></div></div>
+  </aside>
+  <div class="col">
+   <header class="topbar">
+    <div><h2 class="serif pt">${esc(pageTitle())}</h2><i class="ptline"></i></div>
+    <div class="ttools">
+     <div class="langs">
+      <button class="${LANG==='am'?'on':''}" onclick="setLang('am')">አማርኛ</button>
+      <button class="${LANG==='ar'?'on':''}" onclick="setLang('ar')">العربية</button>
+      <button class="${LANG==='en'?'on':''}" onclick="setLang('en')">English</button>
+     </div>
+     <button class="btn sm ghost" onclick="installPwa()"><i class="ph ph-download-simple"></i><span class="hide-m">${t('installApp')}</span></button>
+     <button class="icon-btn" title="${t('logout')}" onclick="doLogout()"><i class="ph ph-sign-out"></i></button>
+    </div>
+   </header>
+   <main class="main">${renderPage()}</main>
+  </div>
+ </div><div id="modalRoot"></div>`;
+}
+function renderPage(){try{switch(S.page){case'dashboard':return vDashboard();case'students':return vStudents();case'tests':return vTests();case'festival':return vFestival();case'readings':return vReadings();case'reports':return vReports();case'teachers':return vTeachers();case'settings':return vSettings()}}catch(e){console.error(e);return `<p class="mut pad">${t('noData')}</p>`}return ''}
+
+/* ================================================================
+   7) شاشة الدخول
+================================================================ */
+function viewLogin(){
+ return `<div class="login-wrap">
+  <div class="login-side"><div class="pattern"></div><div class="orb o1"></div><div class="orb o2"></div>
+   <div class="login-brand">${LOGO}<h1>${t('appName')}</h1><p>${t('motto')}</p></div>
+   <div class="login-quote"><blockquote class="quran">﴿ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا ﴾</blockquote><span>سورة الفرقان — ٧٣</span>${t('quoteTr')?`<small>${t('quoteTr')}</small>`:''}</div>
+  </div>
+  <div class="login-form">
+   <div class="login-card">
+   <form onsubmit="doLogin(event)">
+    <h2 class="serif">${t('login')}</h2><p class="lf-sub">${t('loginSub')}</p>
+    <label class="fld">${t('username')}</label><input class="inp" name="u" autocomplete="username" required>
+    <label class="fld">${t('password')}</label><input class="inp" type="password" name="p" autocomplete="current-password" required>
+    <button class="btn primary" type="submit"><i class="ph ph-sign-in"></i>${t('loginBtn')}</button>
+    <p class="lf-hint">${t('loginHint')}</p>
+   </form>
+   </div>
+   <div class="langs login-lang">
+    <button class="${LANG==='am'?'on':''}" onclick="setLang('am')">አማርኛ</button>
+    <button class="${LANG==='ar'?'on':''}" onclick="setLang('ar')">العربية</button>
+    <button class="${LANG==='en'?'on':''}" onclick="setLang('en')">English</button>
+   </div>
+  </div>
+ </div><div id="modalRoot"></div>`;
+}
+function doLogin(e){e.preventDefault();const f=new FormData(e.target);const u=DB.users.find(x=>x.username===String(f.get('u')).trim()&&x.pass===pHash(f.get('p'))&&x.active!==false);if(!u){toast(t('loginFail'),'err');return}S.user=u;sessionStorage.setItem('nsid',u.id);logAct(t('login')+' — '+u.name);render()}
+function doLogout(){sessionStorage.removeItem('nsid');S.user=null;render()}
+
+/* ================================================================
+   8) لوحة التحكم
+================================================================ */
+function overallAvg(){let a=0,b=0;DB.scores.forEach(c=>{const x=byId(DB.tests,c.testId);if(x){a+=c.score;b+=x.max}});return b?Math.round(a/b*100):0}
+function subjectPulse(){const m={};DB.scores.forEach(c=>{const x=byId(DB.tests,c.testId);if(x)(m[x.subject]=m[x.subject]||[]).push(c.score/x.max)});return Object.entries(m).map(([k,v])=>({k,avg:v.reduce((a,b)=>a+b,0)/v.length*100,n:v.length})).sort((a,b)=>b.avg-a.avg)}
+function vDashboard(){
+ const u=S.user,ayat=DB.readings.reduce((a,r)=>a+(r.ayat||0),0),acts=DB.activities.length;
+ const top=Math.max(1,...subjectPulse().map(p=>p.avg));
+ const today=LANG==='am'?ethToday()+' · '+fmtDate(todayISO()):fmtDate(todayISO());
+ return `<div class="hello serif">${t('dashHello',esc(u.name))}</div><div class="today">${t('dashToday')}: ${today}</div>
+ <div class="statbar">
+  <div class="stat"><b>${DB.students.length}</b><span>${t('statStudents')}</span></div>
+  <div class="stat"><b>${DB.tests.length}</b><span>${t('statTests')}</span></div>
+  <div class="stat"><b>${overallAvg()}%</b><span>${t('statAvg')}</span></div>
+  <div class="stat"><b>${ayat}</b><span>${t('statAyat')}</span></div>
+  <div class="stat"><b>${acts}</b><span>${t('statActs')}</span></div>
+ </div>
+ <div class="dash-grid">
+  <section class="panel"><h4><i class="ph ph-chart-bar"></i>${t('subjectPulse')}</h4>
+   ${subjectPulse().map(p=>`<div class="pulse-row"><span class="nm">${t('subject_'+p.k)}</span><div class="pulse-bar"><i style="width:${Math.max(4,p.avg).toFixed(0)}%"></i></div><span class="vl">${p.avg.toFixed(0)}%</span></div>`).join('')||`<p class="mut">${t('noData')}</p>`}
+  </section>
+  <aside class="panel"><h4><i class="ph ph-clock"></i>${t('recentOps')}</h4>
+   ${DB.log.slice(0,7).map(l=>`<div class="log-item"><i class="log-dot"></i><div>${esc(l.txt)}<span class="when">${esc(l.by)} · ${fmtWhen(l.at)}</span></div></div>`).join('')||`<p class="mut">${t('noData')}</p>`}
+  </aside>
+ </div>
+ <div class="fest-banner"><div><div class="fb-line"></div><h3 class="serif">${t('festBannerTitle')}</h3><div class="fb-sub">${t('festBannerSub',fmtDate(DB.settings.festivalDate),acts)}</div></div>
+  <button class="btn brass" onclick="nav('festival')"><i class="ph ph-confetti"></i>${t('viewProgram')}</button></div>`;
+}
+
+/* ================================================================
+   9) الطلاب
+================================================================ */
+function studentRows(){
+ let list=DB.students.slice();
+ if(S.stL!=='all')list=list.filter(s=>s.level===S.stL);
+ if(S.stT!=='all')list=list.filter(s=>s.teacherId===S.stT);
+ if(S.stQ)list=list.filter(s=>(s.name+' '+(s.guardian||'')+' '+(s.phone||'')).toLowerCase().includes(S.stQ.toLowerCase()));
+ if(!list.length)return `<tr><td colspan="7" class="mut" style="text-align:center;padding:26px">${t('noData')}</td></tr>`;
+ return list.map((s,i)=>{const tc=byId(DB.users,s.teacherId);return `<tr>
+  <td class="mut">${i+1}</td><td><b>${esc(s.name)}</b></td>
+  <td><span class="bdg ${s.level}">${t(s.level)}</span></td>
+  <td>${tc?esc(tc.name):'<span class="mut">'+t('noTeacher')+'</span>'}</td>
+  <td>${esc(s.guardian||'—')}</td><td dir="ltr">${esc(s.phone||'—')}</td>
+  <td class="nowrap"><button class="icon-btn" title="${t('edit')}" onclick="openStudentForm('${s.id}')"><i class="ph ph-pencil-simple"></i></button>
+  ${canDelStudent(s)?`<button class="icon-btn danger" title="${t('delete')}" onclick="delStudent('${s.id}')"><i class="ph ph-trash"></i></button>`:''}</td></tr>`}).join('');
+}
+function vStudents(){
+ const teachers=DB.users.filter(u=>u.role==='teacher');
+ return `<div class="toolbar">
+   <input class="inp w220" placeholder="${t('search')}" value="${esc(S.stQ)}" oninput="S.stQ=this.value;paintStudents()">
+   <select class="inp w150" onchange="S.stL=this.value;paintStudents()"><option value="all">${t('allLevels')}</option><option value="senior" ${S.stL==='senior'?'selected':''}>${t('senior')}</option><option value="junior" ${S.stL==='junior'?'selected':''}>${t('junior')}</option></select>
+   <select class="inp w220" onchange="S.stT=this.value;paintStudents()"><option value="all">${t('teacher')} — ${t('allLevels')}</option>${teachers.map(u=>`<option value="${u.id}" ${S.stT===u.id?'selected':''}>${esc(u.name)}</option>`).join('')}</select>
+   <span class="grow"></span>
+   ${xbar('students')}
+   <button class="btn primary" onclick="openStudentForm()"><i class="ph ph-plus"></i>${t('addStudent')}</button>
+  </div>
+  <div class="card"><table class="tbl"><thead><tr><th>#</th><th>${t('name')}</th><th>${t('testLevel')}</th><th>${t('teacher')}</th><th>${t('guardian')}</th><th>${t('phone')}</th><th>${t('actions')}</th></tr></thead><tbody id="stBody">${studentRows()}</tbody></table></div>`;
+}
+function paintStudents(){const b=document.getElementById('stBody');if(b)b.innerHTML=studentRows()}
+function openStudentForm(id){
+ const s=id?byId(DB.students,id):null;const teachers=DB.users.filter(u=>u.role==='teacher'||u.role==='owner');
+ openModal(`<h3 class="mtitle serif">${s?t('editStudent'):t('addStudent')}</h3>
+ <form onsubmit="saveStudent(event,'${id||''}')">
+  <label class="fld">${t('name')} *</label><input class="inp" name="name" required value="${s?esc(s.name):''}">
+  <label class="fld">${t('testLevel')}</label>
+  <select class="inp" name="level"><option value="senior" ${s&&s.level==='senior'?'selected':''}>${t('senior')}</option><option value="junior" ${s&&s.level==='junior'?'selected':''}>${t('junior')}</option></select>
+  <label class="fld">${t('assignTeacher')}</label>
+  <select class="inp" name="teacherId"><option value="">${t('noTeacher')}</option>${teachers.map(u=>`<option value="${u.id}" ${s&&s.teacherId===u.id?'selected':''}>${esc(u.name)}</option>`).join('')}</select>
+  <label class="fld">${t('guardian')}</label><input class="inp" name="guardian" value="${s?esc(s.guardian||''):''}">
+  <label class="fld">${t('phone')}</label><input class="inp" name="phone" dir="ltr" value="${s?esc(s.phone||''):''}">
+  <label class="fld">${t('notes')}</label><textarea class="inp" name="notes" rows="2">${s?esc(s.notes||''):''}</textarea>
+  <div class="mfoot"><button class="btn primary" type="submit"><i class="ph ph-check"></i>${t('save')}</button><button class="btn ghost" type="button" onclick="closeModal()">${t('cancel')}</button></div>
+ </form>`);
+}
+function saveStudent(e,id){e.preventDefault();const f=new FormData(e.target);const rec={name:String(f.get('name')).trim(),level:f.get('level'),teacherId:f.get('teacherId')||'',guardian:String(f.get('guardian')).trim(),phone:String(f.get('phone')).trim(),notes:String(f.get('notes')).trim()};if(!rec.name){toast(t('fillAll'),'err');return}
+ if(id){Object.assign(byId(DB.students,id),rec);logAct(t('editStudent')+': '+rec.name)}else{rec.id=uid('s');DB.students.push(rec);logAct(t('addStudent')+': '+rec.name)}
+ saveDB();closeModal();toast(t('savedOk'));render()}
+function delStudent(id){const s=byId(DB.students,id);if(!s)return;confirmBox(t('deleteWarn'),()=>{DB.scores=DB.scores.filter(c=>c.studentId!==id);DB.readings=DB.readings.filter(r=>r.studentId!==id);rmv(DB.students,id);logAct(t('delete')+' — '+t('navStudents')+': '+s.name);saveDB();closeModal();toast(t('deletedOk'));render()})}
+
+/* ================================================================
+   10) الاختبارات + تسجيل الدرجات
+================================================================ */
+function vTests(){
+ if(S.gradingTest)return vGrading(S.gradingTest);
+ const lv=S.testLevel||'all';let list=DB.tests.slice().sort((a,b)=>a.date<b.date?1:-1);if(lv!=='all')list=list.filter(x=>x.level===lv);
+ return `<div class="toolbar">
+  <select class="inp w150" onchange="S.testLevel=this.value;render()"><option value="all">${t('allLevels')}</option><option value="senior" ${lv==='senior'?'selected':''}>${t('senior')}</option><option value="junior" ${lv==='junior'?'selected':''}>${t('junior')}</option></select>
+  <span class="grow"></span><button class="btn primary" onclick="openTestForm()"><i class="ph ph-plus"></i>${t('addTest')}</button></div>
+  <div class="card">${list.length?`<table class="tbl"><thead><tr><th>${t('testTitle')}</th><th>${t('testSubject')}</th><th>${t('testLevel')}</th><th>${t('maxScore')}</th><th>${t('testDate')}</th><th></th><th>${t('actions')}</th></tr></thead><tbody>
+  ${list.map(x=>{const n=new Set(DB.scores.filter(c=>c.testId===x.id).map(c=>c.studentId)).size;return `<tr>
+   <td><b>${esc(x.title)}</b>${x.type==='quran'?` <span class="bdg qrn">${t('typeQuran')}</span>`:''}</td>
+   <td>${t('subject_'+x.subject)}</td><td><span class="bdg ${x.level}">${t(x.level)}</span></td>
+   <td class="serif big">${x.max}</td><td class="mut">${fmtDate(x.date)}</td><td class="mut">${t('registered',n)}</td>
+   <td class="nowrap"><button class="btn sm primary" onclick="openGrading('${x.id}')"><i class="ph ph-pencil-line"></i>${t('enterScores')}</button>
+   <button class="icon-btn" onclick="openTestForm('${x.id}')"><i class="ph ph-pencil-simple"></i></button>
+   <button class="icon-btn danger" onclick="delTest('${x.id}')"><i class="ph ph-trash"></i></button></td></tr>`}).join('')}
+  </tbody></table>`:`<p class="mut pad">${t('noData')}</p>`}</div>`;
+}
+function openGrading(id){S.gradingTest=id;render();window.scrollTo(0,0)}
+function vGrading(tid){
+ const tst=byId(DB.tests,tid);if(!tst){S.gradingTest=null;return vTests()}
+ const sts=DB.students.filter(s=>s.level===tst.level).sort((a,b)=>a.name.localeCompare(b.name));
+ return `<div class="toolbar">
+   <button class="btn sm ghost" onclick="S.gradingTest=null;render()"><i class="ph ph-arrow-left flip"></i>${t('back')}</button>
+   <div class="grow"><h3 class="serif" style="font-size:21px">${esc(tst.title)}</h3><p class="mut" style="font-size:13px">${t('maxScore')}: <b class="serif" style="font-size:16px">${tst.max}</b> · ${t(tst.level)} · ${fmtDate(tst.date)}</p></div>
+   ${xbar('scores',tid)}
+   <button class="btn ghost" onclick="openSheet('attendance','${tid}')"><i class="ph ph-list-checks"></i>${t('attendanceSheet')}</button>
+  </div>
+  <form onsubmit="saveScores(event,'${tid}')"><div class="card"><table class="tbl"><thead><tr><th>#</th><th>${t('name')}</th><th>${t('scoreCol')} (${t('outOf',tst.max)})</th><th>${t('pctCol')}</th><th>${t('noteCol')}</th></tr></thead><tbody>
+  ${sts.map((s,i)=>{const c=DB.scores.find(x=>x.testId===tid&&x.studentId===s.id);return `<tr>
+   <td class="mut">${i+1}</td><td><b>${esc(s.name)}</b></td>
+   <td><input class="inp num" type="number" step="0.5" min="0" max="${tst.max}" name="v_${s.id}" value="${c?c.score:''}" placeholder="—" oninput="gPct(this,${tst.max})"></td>
+   <td class="pc mut">${c?Math.round(c.score/tst.max*100)+'%':'—'}</td>
+   <td><input class="inp" name="n_${s.id}" value="${c?esc(c.note||''):''}"></td></tr>`}).join('')||`<tr><td colspan="5" class="mut" style="text-align:center;padding:26px">${t('noData')}</td></tr>`}
+  </tbody></table></div>
+  <div class="bar" style="margin-top:14px"><button class="btn primary" type="submit"><i class="ph ph-check"></i>${t('saveScores')}</button></div></form>`;
+}
+function gPct(inp,max){const tr=inp.closest('tr');const pc=tr.querySelector('.pc');const v=parseFloat(inp.value);pc.textContent=(isNaN(v)||v<0)?'—':Math.round(v/max*100)+'%'}
+function saveScores(e,tid){e.preventDefault();const f=new FormData(e.target);const tst=byId(DB.tests,tid);let n=0;
+ DB.students.filter(s=>s.level===tst.level).forEach(s=>{
+  const raw=f.get('v_'+s.id);const note=String(f.get('n_'+s.id)||'').trim();
+  const ex=DB.scores.find(c=>c.testId===tid&&c.studentId===s.id);
+  if(raw===''||raw===null){if(ex)rmv(DB.scores,ex.id);return}
+  let v=parseFloat(raw);if(isNaN(v))return;v=Math.max(0,Math.min(tst.max,v));
+  if(ex){ex.score=v;ex.note=note;ex.by=S.user.name;ex.at=Date.now()}else DB.scores.push({id:uid('c'),testId:tid,studentId:s.id,score:v,note,by:S.user.name,at:Date.now()});n++;
+ });
+ logAct(t('enterScores')+': '+tst.title+' ('+n+')');saveDB();toast(t('savedOk'));render()}
+function openTestForm(id){
+ const x=id?byId(DB.tests,id):null;const subs=['quran','fiqh','aqidah','sirah','tajweed','akhlaq','hadith','other'];
+ openModal(`<h3 class="mtitle serif">${x?t('editTest'):t('addTest')}</h3>
+ <form onsubmit="saveTest(event,'${id||''}')">
+  <label class="fld">${t('testTitle')} *</label><input class="inp" name="title" required value="${x?esc(x.title):''}">
+  <label class="fld">${t('testLevel')}</label>
+  <select class="inp" name="level"><option value="senior" ${x&&x.level==='senior'?'selected':''}>${t('senior')}</option><option value="junior" ${x&&x.level==='junior'?'selected':''}>${t('junior')}</option></select>
+  <label class="fld">${t('testSubject')}</label>
+  <select class="inp" name="type" onchange="if(this.value==='quran')this.form.subject.value='quran'">
+   <option value="quran" ${x&&x.type==='quran'?'selected':''}>${t('typeQuran')}</option><option value="subject" ${x&&x.type==='subject'?'selected':''}>${t('typeSubject')}</option></select>
+  <select class="inp" name="subject" style="margin-top:8px">${subs.map(k=>`<option value="${k}" ${x&&x.subject===k?'selected':''}>${t('subject_'+k)}</option>`).join('')}</select>
+  <label class="fld">${t('maxScore')} *</label>
+  <div class="bar" style="margin-bottom:8px">${[10,20,25,50,100].map(v=>`<button type="button" class="btn sm ghost" onclick="this.form.max.value=${v}">${v}</button>`).join('')}</div>
+  <input class="inp num" type="number" name="max" min="1" required value="${x?x.max:25}">
+  <p class="mut" style="font-size:12px;margin-top:5px">${t('maxScoreHint')}</p>
+  <label class="fld">${t('testDate')}</label><input class="inp" type="date" name="date" value="${x?x.date:todayISO()}">
+  <div class="mfoot"><button class="btn primary" type="submit"><i class="ph ph-check"></i>${t('save')}</button><button class="btn ghost" type="button" onclick="closeModal()">${t('cancel')}</button></div>
+ </form>`);
+}
+function saveTest(e,id){e.preventDefault();const f=new FormData(e.target);
+ const rec={title:String(f.get('title')).trim(),level:f.get('level'),type:f.get('type'),subject:f.get('subject'),max:Math.max(1,parseFloat(f.get('max'))||1),date:f.get('date')||todayISO()};
+ if(!rec.title){toast(t('fillAll'),'err');return}
+ if(id){Object.assign(byId(DB.tests,id),rec);logAct(t('editTest')+': '+rec.title)}else{rec.id=uid('t');rec.by=S.user.name;DB.tests.push(rec);logAct(t('addTest')+': '+rec.title)}
+ saveDB();closeModal();toast(t('savedOk'));render()}
+function delTest(id){const x=byId(DB.tests,id);if(!x)return;confirmBox(t('deleteTestWarn'),()=>{DB.scores=DB.scores.filter(c=>c.testId!==id);rmv(DB.tests,id);logAct(t('delete')+' — '+t('navTests')+': '+x.title);saveDB();closeModal();toast(t('deletedOk'));if(S.gradingTest===id)S.gradingTest=null;render()})}
+
+/* ================================================================
+   11) المهرجانية — برنامج يوم الاختتام
+================================================================ */
+function actRow(a){
+ const who=a.participants.map(p=>esc(p.name)).filter(Boolean).join(' · ')||'—';
+ return `<div class="act-row">
+  <div class="act-num">${String(a.order).padStart(2,'0')}</div>
+  <div class="act-main"><h5>${esc(a.title)}</h5>${a.desc?`<p class="act-desc">${esc(a.desc)}</p>`:''}
+  <p class="act-who"><i class="ph ph-microphone"></i>${who}</p></div>
+  <div class="act-min"><b>${a.mins||''}</b>${t('minShort')}</div>
+  <div class="act-tools"><button class="icon-btn" title="${t('edit')}" onclick="openActivityForm('${a.section}','${a.id}')"><i class="ph ph-pencil-simple"></i></button>
+  <button class="icon-btn danger" title="${t('delete')}" onclick="delActivity('${a.id}')"><i class="ph ph-trash"></i></button></div>
+ </div>`;
+}
+function vFestival(){
+ const d=DB.settings.festivalDate;
+ const secs=[['senior','seniorProgram'],['junior','juniorProgram']];
+ return `<div class="fest-head">
+   <div><div class="fest-date"><i class="ph ph-calendar-blank"></i>${fmtDate(d)}</div>
+   <h3 class="serif">${t('festivalTitle')}</h3><p class="mut">${t('festivalSub')}</p></div>
+   <div class="bar">
+    ${xbar('program')}
+    <button class="btn ghost" onclick="openSheet('festAtt')"><i class="ph ph-list-checks"></i>${t('attendanceAllSheet')}</button>
+    <button class="btn ghost" onclick="openFestDate()"><i class="ph ph-calendar-check"></i>${t('festDateLabel')}</button>
+    <button class="btn primary" onclick="openActivityForm('senior')"><i class="ph ph-plus"></i>${t('addActivity')}</button>
+   </div></div>
+  ${secs.map(([sec,key])=>{const acts=DB.activities.filter(a=>a.section===sec).sort((a,b)=>a.order-b.order);
+   return `<section class="prog"><header class="prog-head"><h4 class="serif">${t(key)}</h4><span class="cnt">${acts.length}</span></header>
+   ${acts.map(actRow).join('')||`<p class="mut pad">${t('noData')}</p>`}
+   <button class="btn sm ghost add-act" onclick="openActivityForm('${sec}')"><i class="ph ph-plus"></i>${t('addActivity')}</button></section>`}).join('')}`;
+}
+function openActivityForm(section,id){
+ const a=id?byId(DB.activities,id):null;
+ const maxO=Math.max(0,...DB.activities.filter(x=>x.section===section).map(x=>x.order));
+ openModal(`<h3 class="mtitle serif">${a?t('editActivity'):t('addActivity')} — ${t(section==='senior'?'seniorProgram':'juniorProgram')}</h3>
+ <form onsubmit="saveActivity(event,'${section}','${id||''}')">
+  <label class="fld">${t('testTitle')} *</label><input class="inp" name="title" required value="${a?esc(a.title):''}">
+  <label class="fld">${t('activityDesc')}</label><input class="inp" name="desc" value="${a?esc(a.desc||''):''}">
+  <label class="fld">${t('participantsLabel')}</label><textarea class="inp" name="who" rows="4" placeholder="${t('participantsHint')}">${a?a.participants.map(p=>esc(p.name)).join('\n'):''}</textarea>
+  <label class="fld">${t('minutes')}</label><input class="inp num" type="number" name="mins" min="0" value="${a?a.mins||5:5}">
+  <div class="mfoot"><button class="btn primary" type="submit"><i class="ph ph-check"></i>${t('save')}</button><button class="btn ghost" type="button" onclick="closeModal()">${t('cancel')}</button></div>
+ </form>`);
+}
+function saveActivity(e,section,id){e.preventDefault();const f=new FormData(e.target);
+ const title=String(f.get('title')).trim();if(!title){toast(t('fillAll'),'err');return}
+ const participants=String(f.get('who')||'').split('\n').map(s=>s.trim()).filter(Boolean).map(n=>({name:n}));
+ if(id){const a=byId(DB.activities,id);Object.assign(a,{title,desc:String(f.get('desc')).trim(),participants,mins:parseInt(f.get('mins'))||0});logAct(t('editActivity')+': '+title)}
+ else{DB.activities.push({id:uid('a'),section,title,desc:String(f.get('desc')).trim(),participants,mins:parseInt(f.get('mins'))||0,order:Math.max(0,...DB.activities.filter(x=>x.section===section).map(x=>x.order))+1});logAct(t('addActivity')+': '+title)}
+ saveDB();closeModal();toast(t('savedOk'));render()}
+function delActivity(id){const a=byId(DB.activities,id);if(!a)return;confirmBox(t('deleteWarn'),()=>{rmv(DB.activities,id);logAct(t('delete')+' — '+t('navFestival')+': '+a.title);saveDB();closeModal();toast(t('deletedOk'));render()})}
+function openFestDate(){openModal(`<h3 class="mtitle serif">${t('festDateLabel')}</h3>
+ <form onsubmit="saveFestDate(event)"><label class="fld">${t('festDateLabel')}</label>
+ <input class="inp" type="date" name="d" value="${DB.settings.festivalDate}" required>
+ <div class="mfoot"><button class="btn primary" type="submit"><i class="ph ph-check"></i>${t('save')}</button><button class="btn ghost" type="button" onclick="closeModal()">${t('cancel')}</button></div></form>`)}
+function saveFestDate(e){e.preventDefault();DB.settings.festivalDate=new FormData(e.target).get('d');saveDB();closeModal();toast(t('savedOk'));render()}
+
+/* ================================================================
+   12) الزيادة في القراءة — وحدة مستقلة تماماً
+================================================================ */
+function topReaders(){const m={};DB.readings.forEach(r=>{if(!r.studentId)return;m[r.studentId]=(m[r.studentId]||0)+(r.ayat||0)});
+ return Object.entries(m).map(([id,ay])=>({st:byId(DB.students,id),ay})).filter(x=>x.st).sort((a,b)=>b.ay-a.ay)}
+function vReadings(){
+ const kindB={z:['kindZ','z'],m:['kindM','m'],h:['kindH','h']};
+ const list=DB.readings.slice().sort((a,b)=>(a.date<b.date?1:-1));
+ const top=topReaders().slice(0,6);const mx=Math.max(1,...top.map(x=>x.ay));
+ return `<div class="spark-card">
+   <div><h3 class="serif">${t('readingsTitle')}</h3><p>${t('independentNote')}</p></div>
+   <button class="btn brass" onclick="openReadingForm()"><i class="ph ph-book-open"></i>${t('newReading')}</button>
+  </div>
+  <div class="rd-grid">
+   <div>
+    <div class="toolbar">${xbar('readings')}</div>
+    <div class="card"><table class="tbl"><thead><tr><th>${t('date')}</th><th>${t('readingStudent')}</th><th>${t('kindCol')}</th><th>${t('surah')}</th><th>${t('ayatWord')}</th><th>${t('listenedBy')}</th><th>${t('actions')}</th></tr></thead><tbody>
+    ${list.map(r=>{const st=byId(DB.students,r.studentId);const kb=kindB[r.kind]||kindB.z;return `<tr>
+     <td class="mut" style="white-space:nowrap">${fmtDate(r.date)}</td><td><b>${st?esc(st.name):'—'}</b></td>
+     <td><span class="bdg ${kb[1]}">${t(kb[0])}</span></td><td>${esc(r.surah)}</td>
+     <td class="serif">${r.from}–${r.to} <span class="mut">(${r.ayat})</span></td><td class="mut">${esc(r.listener||'')}</td>
+     <td class="nowrap"><button class="icon-btn danger" onclick="delReading('${r.id}')"><i class="ph ph-trash"></i></button></td></tr>`}).join('')||`<tr><td colspan="7" class="mut" style="text-align:center;padding:26px">${t('noData')}</td></tr>`}
+    </tbody></table></div>
+   </div>
+   <aside class="panel"><h4><i class="ph ph-star"></i>${t('topReaders')}</h4>
+    ${top.map(x=>`<div class="top-row"><span class="rk">${x.ay}</span><div><div class="nm">${esc(x.st.name)}</div><div class="pulse-bar" style="margin-top:5px"><i style="width:${(x.ay/mx*100).toFixed(0)}%"></i></div></div><span class="ay">${t('ayatWord')}</span></div>`).join('')||`<p class="mut">${t('noData')}</p>`}
+   </aside>
+  </div>`;
+}
+function openReadingForm(){
+ const sts=DB.students.slice().sort((a,b)=>a.name.localeCompare(b.name));
+ openModal(`<h3 class="mtitle serif">${t('newReading')}</h3><p class="msub">${t('independentNote')}</p>
+ <form onsubmit="saveReading(event)">
+  <label class="fld">${t('readingStudent')} *</label>
+  <select class="inp" name="studentId" required>${sts.map(s=>`<option value="${s.id}">${esc(s.name)} — ${t(s.level)}</option>`).join('')}</select>
+  <label class="fld">${t('readingKind')}</label>
+  <select class="inp" name="kind"><option value="z">${t('kindZ')}</option><option value="m">${t('kindM')}</option><option value="h">${t('kindH')}</option></select>
+  <label class="fld">${t('surah')}</label>
+  <select class="inp" id="rdSurah" onchange="surahChanged()">${SURAHS.map((s,i)=>`<option value="${i}">${s[0]} (${s[1]})</option>`).join('')}</select>
+  <div class="bar" style="gap:10px;margin-top:4px">
+   <div style="flex:1"><label class="fld">${t('fromAyah')}</label><input class="inp" id="rdFrom" type="number" min="1" value="1" oninput="calcAyat()"></div>
+   <div style="flex:1"><label class="fld">${t('toAyah')}</label><input class="inp" id="rdTo" type="number" min="1" value="1" oninput="calcAyat()"></div>
+  </div>
+  <p class="mut" style="font-size:13px;margin-top:8px"><i class="ph ph-book-open"></i> <b id="rdAyat" class="serif" style="font-size:16px">1</b> ${t('ayatWord')}</p>
+  <label class="fld">${t('listenedBy')}</label>
+  <select class="inp" name="listener">${DB.users.filter(u=>u.active!==false&&u.role!=='owner').concat(DB.users.filter(u=>u.role==='owner')).map(u=>`<option value="${esc(u.name)}" ${u.id===S.user.id?'selected':''}>${esc(u.name)}</option>`).join('')}</select>
+  <label class="fld">${t('readingDate')}</label><input class="inp" type="date" name="date" value="${todayISO()}">
+  <label class="fld">${t('notes')}</label><input class="inp" name="note">
+  <div class="mfoot"><button class="btn brass" type="submit"><i class="ph ph-check"></i>${t('save')}</button><button class="btn ghost" type="button" onclick="closeModal()">${t('cancel')}</button></div>
+ </form>`);
+}
+function surahChanged(){const n=SURAHS[+document.getElementById('rdSurah').value][1];['rdFrom','rdTo'].forEach(id=>{const el=document.getElementById(id);el.max=n;if(+el.value>n)el.value=n});calcAyat()}
+function calcAyat(){const a=+document.getElementById('rdFrom').value||0,b=+document.getElementById('rdTo').value||0;document.getElementById('rdAyat').textContent=(b>=a&&a>0)?(b-a+1):0}
+function saveReading(e){e.preventDefault();const f=new FormData(e.target);
+ const si=+document.getElementById('rdSurah').value,from=+document.getElementById('rdFrom').value,to=+document.getElementById('rdTo').value;
+ const n=SURAHS[si][1];if(!(from>=1&&to>=from&&to<=n)){toast(t('fillAll'),'err');return}
+ DB.readings.push({id:uid('r'),studentId:f.get('studentId'),kind:f.get('kind'),surah:SURAHS[si][0],from,to,ayat:to-from+1,listener:f.get('listener'),date:f.get('date')||todayISO(),note:String(f.get('note')||'')});
+ logAct(t('newReading')+': '+SURAHS[si][0]+' '+from+'-'+to);saveDB();closeModal();toast(t('savedOk'));render()}
+function delReading(id){confirmBox(t('deleteWarn'),()=>{rmv(DB.readings,id);saveDB();closeModal();toast(t('deletedOk'));render()})}
+
+/* ================================================================
+   13) التقارير
+================================================================ */
+function studentStats(sid){
+ const rows=DB.scores.filter(c=>c.studentId===sid).map(c=>({c,tst:byId(DB.tests,c.testId)})).filter(x=>x.tst);
+ const st=byId(DB.students,sid);const avg=rows.length?rows.reduce((a,x)=>a+x.c.score/x.tst.max,0)/rows.length*100:0;
+ let rank='—';
+ if(st&&rows.length){const peers=DB.students.filter(s=>s.level===st.level).map(s=>{const rs=DB.scores.filter(c=>c.studentId===s.id).map(c=>{const tst=byId(DB.tests,c.testId);return tst?c.score/tst.max:0});return{id:s.id,a:rs.length?rs.reduce((x,y)=>x+y,0)/rs.length:0}});
+  peers.sort((a,b)=>b.a-a.a);rank=peers.findIndex(p=>p.id===sid)+1}
+ return {rows,st,avg,rank};
+}
+function vReports(){
+ const sts=DB.students.slice().sort((a,b)=>a.name.localeCompare(b.name));
+ const rep=S.reportStudent?studentStats(S.reportStudent):null;
+ return `<div class="toolbar">
+   <select class="inp w220" id="repSel">${sts.map(s=>`<option value="${s.id}" ${S.reportStudent===s.id?'selected':''}>${esc(s.name)} — ${t(s.level)}</option>`).join('')}</select>
+   <button class="btn primary" onclick="S.reportStudent=document.getElementById('repSel').value;render()"><i class="ph ph-chart-bar"></i>${t('showReport')}</button>
+  </div>
+  ${rep&&rep.st?`<div class="card" style="padding:22px 24px;margin-bottom:20px">
+   <div class="bar" style="justify-content:space-between">
+    <div><h3 class="serif" style="font-size:22px">${t('reportFor',esc(rep.st.name))}</h3>
+    <p class="mut" style="font-size:13px">${t('studentLevel')}: <b>${t(rep.st.level)}</b> · ${t('studentTeacher')}: <b>${byId(DB.users,rep.st.teacherId)?esc(byId(DB.users,rep.st.teacherId).name):t('noTeacher')}</b> · ${t('testsTaken')}: <b>${rep.rows.length}</b> · ${t('rank')}: <b class="serif">${rep.rank}</b></p></div>
+    <div style="text-align:center"><div class="serif" style="font-size:38px;font-weight:600">${rep.avg.toFixed(1)}%</div><div class="mut" style="font-size:12px">${t('studentAvg')}</div></div>
+   </div>
+   <table class="tbl" style="margin-top:14px"><thead><tr><th>${t('testTitle')}</th><th>${t('testSubject')}</th><th>${t('maxScore')}</th><th>${t('scoreCol')}</th><th>${t('pctCol')}</th><th>${t('date')}</th></tr></thead><tbody>
+   ${rep.rows.map(x=>`<tr><td><b>${esc(x.tst.title)}</b></td><td>${t('subject_'+x.tst.subject)}</td><td class="serif">${x.tst.max}</td><td class="serif" style="font-size:17px"><b>${x.c.score}</b></td>
+   <td><div class="bar"><div class="pulse-bar" style="width:90px"><i style="width:${Math.round(x.c.score/x.tst.max*100)}%"></i></div><span class="mut">${Math.round(x.c.score/x.tst.max*100)}%</span></div></td>
+   <td class="mut">${fmtDate(x.tst.date)}</td></tr>`).join('')||`<tr><td colspan="6" class="mut" style="text-align:center;padding:22px">${t('noScores')}</td></tr>`}
+   </tbody></table>
+   <div class="bar" style="margin-top:16px">${xbar('report',rep.st.id)}</div>
+  </div>`:`<p class="mut pad card" style="padding:22px">${t('noReport')}</p>`}
+  <section class="panel" style="margin-top:20px"><h4><i class="ph ph-printer"></i>${t('quickSheets')}</h4>
+   <div class="bar">${DB.tests.map(x=>`<button class="btn sm ghost" onclick="openSheet('attendance','${x.id}')"><i class="ph ph-list-checks"></i>${t('sheetFor',esc(x.title))}</button>`).join('')}
+   <button class="btn sm ghost" onclick="openSheet('festAtt')"><i class="ph ph-confetti"></i>${t('attendanceAllSheet')}</button></div>
+  </section>`;
+}
+
+/* ================================================================
+   14) الأساتذة (المشرف العام فقط)
+================================================================ */
+function vTeachers(){
+ if(!isOwner())return `<p class="mut pad">${t('noData')}</p>`;
+ const list=DB.users.slice().sort((a,b)=>(a.role==='owner'?-1:1)-(b.role==='owner'?-1:1));
+ return `<div class="toolbar"><span class="grow"></span><button class="btn primary" onclick="openTeacherForm()"><i class="ph ph-plus"></i>${t('addTeacher')}</button></div>
+  <div class="card"><table class="tbl"><thead><tr><th>${t('name')}</th><th>${t('tUsername')}</th><th>${t('tSubject')}</th><th>${t('studentsCol')}</th><th>${t('statusCol')}</th><th>${t('actions')}</th></tr></thead><tbody>
+  ${list.map(u=>`<tr>
+   <td><b>${esc(u.name)}</b>${u.role==='owner'?' <span class="bdg qrn">'+t('supervisor')+'</span>':''}</td>
+   <td dir="ltr">${esc(u.username)}</td><td class="mut">${esc(u.subject||'—')}</td>
+   <td class="serif" style="font-size:17px">${DB.students.filter(s=>s.teacherId===u.id).length}</td>
+   <td>${u.active===false?`<span class="bdg senior">${t('inactiveStat')}</span>`:`<span class="bdg junior">${t('activeStat')}</span>`}</td>
+   <td class="nowrap">
+    <button class="icon-btn" title="${t('edit')}" onclick="openTeacherForm('${u.id}')"><i class="ph ph-pencil-simple"></i></button>
+    ${u.role!=='owner'?`<button class="icon-btn" title="${t('statusCol')}" onclick="toggleTeacher('${u.id}')"><i class="ph ph-${u.active===false?'play':'pause'}"></i></button>
+    <button class="icon-btn danger" title="${t('delete')}" onclick="delTeacher('${u.id}')"><i class="ph ph-trash"></i></button>`:''}
+   </td></tr>`).join('')}
+  </tbody></table></div>`;
+}
+function openTeacherForm(id){
+ const u=id?byId(DB.users,id):null;
+ openModal(`<h3 class="mtitle serif">${u?t('editTeacher'):t('addTeacher')}</h3>
+ <form onsubmit="saveTeacher(event,'${id||''}')">
+  <label class="fld">${t('name')} *</label><input class="inp" name="name" required value="${u?esc(u.name):''}">
+  <label class="fld">${t('tUsername')} *</label><input class="inp" name="username" dir="ltr" required value="${u?esc(u.username):''}">
+  <label class="fld">${u?t('tPassNew'):t('tPass')} *</label><input class="inp" name="pass" type="text" dir="ltr" ${u?'':'required'} placeholder="${u?t('tPassNew'):''}">
+  <label class="fld">${t('tSubject')}</label><input class="inp" name="subject" value="${u?esc(u.subject||''):''}">
+  <div class="mfoot"><button class="btn primary" type="submit"><i class="ph ph-check"></i>${t('save')}</button><button class="btn ghost" type="button" onclick="closeModal()">${t('cancel')}</button></div>
+ </form>`);
+}
+function saveTeacher(e,id){e.preventDefault();const f=new FormData(e.target);
+ const rec={name:String(f.get('name')).trim(),username:String(f.get('username')).trim(),subject:String(f.get('subject')).trim()};
+ const pass=String(f.get('pass')||'');
+ if(!rec.name||!rec.username){toast(t('fillAll'),'err');return}
+ if(DB.users.some(u=>u.username===rec.username&&u.id!==id)){toast(t('usernameTaken'),'err');return}
+ if(id){const u=byId(DB.users,id);Object.assign(u,rec);if(pass)u.pass=pHash(pass);logAct(t('editTeacher')+': '+rec.name)}
+ else{if(!pass){toast(t('fillAll'),'err');return}DB.users.push({id:uid('u'),...rec,pass:pHash(pass),role:'teacher',active:true});logAct(t('addTeacher')+': '+rec.name)}
+ saveDB();closeModal();toast(t('savedOk'));render()}
+function toggleTeacher(id){const u=byId(DB.users,id);if(!u)return;u.active=u.active===false;logAct((u.active?t('activeStat'):t('inactiveStat'))+' — '+u.name);saveDB();toast(t('savedOk'));render()}
+function delTeacher(id){const u=byId(DB.users,id);if(!u)return;if(u.id===S.user.id){toast(t('cannotDeleteSelf'),'err');return}
+ confirmBox(t('deleteTeacherWarn'),()=>{rmv(DB.users,id);logAct(t('delete')+' — '+t('navTeachers')+': '+u.name);saveDB();closeModal();toast(t('deletedOk'));render()})}
+
+/* ================================================================
+   15) الإعدادات
+================================================================ */
+function vSettings(){
+ return `<div class="dash-grid" style="margin-top:0">
+  <section class="panel"><h4><i class="ph ph-gear"></i>${t('settingsTitle')}</h4>
+   <form onsubmit="saveSettings(event)">
+    <label class="fld">${t('schoolLabel')}</label><input class="inp" name="schoolName" value="${esc(DB.settings.schoolName||'')}">
+    <label class="fld">${t('festDateLabel')}</label><input class="inp" type="date" name="festivalDate" value="${DB.settings.festivalDate}">
+    <label class="fld">${t('langLabel')}</label>
+    <div class="langs"><button type="button" class="${LANG==='am'?'on':''}" onclick="setLang('am')">አማርኛ</button><button type="button" class="${LANG==='ar'?'on':''}" onclick="setLang('ar')">العربية</button><button type="button" class="${LANG==='en'?'on':''}" onclick="setLang('en')">English</button></div>
+    <div class="mfoot" style="margin-top:20px"><button class="btn primary" type="submit"><i class="ph ph-check"></i>${t('save')}</button></div>
+   </form>
+  </section>
+  <aside class="panel"><h4><i class="ph ph-download-simple"></i>${t('backupTitle')}</h4>
+   <p class="mut" style="font-size:13px">${t('backupSub')}</p>
+   <div class="bar" style="margin-top:14px">
+    <button class="btn ghost" onclick="exportBackup()"><i class="ph ph-download"></i>${t('exportBackup')}</button>
+    <label class="btn ghost" style="cursor:pointer"><i class="ph ph-upload-simple"></i>${t('importBackup')}<input type="file" accept=".json" style="display:none" onchange="importBackup(this)"></label>
+   </div>
+   ${isOwner()?`<div class="bar" style="margin-top:22px"><button class="btn danger" onclick="resetAll()"><i class="ph ph-warning"></i>${t('resetAll')}</button></div>`:''}
+  </aside>
+ </div>`;
+}
+function saveSettings(e){e.preventDefault();const f=new FormData(e.target);DB.settings.schoolName=String(f.get('schoolName')).trim();DB.settings.festivalDate=f.get('festivalDate');logAct(t('settingsTitle'));saveDB();toast(t('savedOk'));render()}
+function exportBackup(){const a=document.createElement('a');a.download='nour-backup-'+todayISO()+'.json';a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(DB,null,1));a.click()}
+function importBackup(inp){const file=inp.files[0];if(!file)return;const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d.users||!d.students)throw 0;DB=d;saveDB();toast(t('importedOk'));render()}catch(e){toast(t('importFail'),'err')}};rd.readAsText(file)}
+function resetAll(){confirmBox(t('resetWarn'),()=>{DB=seedDB();saveDB();S.user=byId(DB.users,'u1');sessionStorage.setItem('nsid','u1');closeModal();toast(t('savedOk'));render()})}
+
+/* ================================================================
+   16) أوراق التصدير (PDF / صورة / نسخ) — بضغطة واحدة
+================================================================ */
+function sheetHTML(title,sub,body){return `<div class="ex-sheet" style="direction:${document.documentElement.dir}">
+ <div class="ex-head"><div class="ex-school serif">${school()}</div><div class="ex-title serif">${title}</div><div class="ex-sub">${sub||''}</div></div>
+ ${body}<div class="ex-meta"><span>${t('date')}: ${fmtDate(todayISO())}</span><span>${t('supervisor')}: ______________</span><span>${t('signature')}: ______________</span></div></div>`}
+const extTable=(head,body)=>`<table class="ext"><thead><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${body}</tbody></table>`;
+const SHEET_BUILDERS={
+ scores:{title:()=>t('scoresSheet'),name:()=>'scores-'+todayISO(),
+  html:tid=>{const tst=byId(DB.tests,tid);if(!tst)return'';const rows=DB.scores.filter(c=>c.testId===tid).map(c=>({...c,st:byId(DB.students,c.studentId)})).filter(c=>c.st).sort((a,b)=>a.st.name.localeCompare(b.st.name));
+  const avg=rows.length?rows.reduce((s,c)=>s+c.score/tst.max,0)/rows.length*100:0;
+  return sheetHTML(esc(tst.title),`${t('maxScore')}: ${tst.max} · ${t(tst.level)} · ${fmtDate(tst.date)}`,
+   extTable(['#',t('name'),t('scoreCol'),t('outOf',tst.max),t('pctCol'),t('noteCol')],
+    rows.map((c,i)=>`<tr><td>${i+1}</td><td>${esc(c.st.name)}</td><td><b>${c.score}</b></td><td>${tst.max}</td><td>${Math.round(c.score/tst.max*100)}%</td><td>${esc(c.note||'')}</td></tr>`).join('')||`<tr><td colspan="6">${t('noScores')}</td></tr>`)
+   +`<p class="ex-sum">${t('avgRow')}: ${avg.toFixed(1)}% · ${t('presentCount',rows.length)}</p>`)},
+ attendance:{title:()=>t('attendanceSheet'),name:()=>'attendance-'+todayISO(),
+  html:tid=>{const tst=byId(DB.tests,tid);if(!tst)return'';const sts=DB.students.filter(s=>s.level===tst.level).sort((a,b)=>a.name.localeCompare(b.name));
+  return sheetHTML(t('attendanceSheet')+' — '+esc(tst.title),`${t(tst.level)} · ${fmtDate(tst.date)}`,
+   extTable(['#',t('attendeeName'),t('testLevel'),t('attendanceSheet')+' ✓',t('signature')],
+    sts.map((s,i)=>`<tr><td>${i+1}</td><td>${esc(s.name)}</td><td>${t(s.level)}</td><td style="text-align:center">☐</td><td class="sig"></td></tr>`).join(''))
+   +`<p class="ex-note">${t('presentCount',sts.length)}</p>`)},
+ program:{title:()=>t('programSheet'),name:()=>'festival-program',
+  html:()=>{const d=DB.settings.festivalDate;
+   const sec=(sec,label)=>{const acts=DB.activities.filter(a=>a.section===sec).sort((a,b)=>a.order-b.order);
+   return `<h3 class="ex-title serif" style="margin:18px 0 8px">${label}</h3>`+extTable(['#',t('testTitle'),t('activityDesc'),t('participantsLabel'),t('minutes')],
+    acts.map(a=>`<tr><td>${a.order}</td><td><b>${esc(a.title)}</b></td><td>${esc(a.desc||'')}</td><td>${a.participants.map(p=>esc(p.name)).join('، ')}</td><td>${a.mins||''}</td></tr>`).join('')||`<tr><td colspan="5">${t('noData')}</td></tr>`)};
+   return sheetHTML(t('festivalTitle'),t('festivalSub')+' — '+fmtDate(d),sec('senior',t('seniorProgram'))+sec('junior',t('juniorProgram')))}},
+ festAtt:{title:()=>t('attendanceAllSheet'),name:()=>'festival-attendance',
+  html:()=>{let i=0;const rows=DB.activities.slice().sort((a,b)=>(a.section==='senior'?-1:1)-(b.section==='senior'?-1:1)||a.order-b.order).flatMap(a=>a.participants.map(p=>({sec:a.section,act:a.title,name:p.name})));
+   return sheetHTML(t('attendanceAllSheet'),t('festivalTitle')+' — '+fmtDate(DB.settings.festivalDate),
+    extTable(['#',t('attendeeName'),t('testLevel'),t('testTitle'),t('signature')],
+     rows.map(r=>`<tr><td>${++i}</td><td>${esc(r.name)}</td><td>${t(r.sec)}</td><td>${esc(r.act)}</td><td class="sig"></td></tr>`).join(''))
+    +`<p class="ex-note">${t('presentCount',rows.length)}</p>`)}},
+ report:{title:()=>t('reportsTitle'),name:a=>'report-'+a,
+  html:sid=>{const r=studentStats(sid);if(!r.st)return'';const tc=byId(DB.users,r.st.teacherId);
+   return sheetHTML(t('reportFor',esc(r.st.name)),`${t('studentLevel')}: ${t(r.st.level)} · ${t('studentTeacher')}: ${tc?esc(tc.name):t('noTeacher')}`,
+    extTable(['#',t('testTitle'),t('testSubject'),t('maxScore'),t('scoreCol'),t('pctCol'),t('date')],
+     r.rows.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.tst.title)}</td><td>${t('subject_'+x.tst.subject)}</td><td>${x.tst.max}</td><td><b>${x.c.score}</b></td><td>${Math.round(x.c.score/x.tst.max*100)}%</td><td>${fmtDate(x.tst.date)}</td></tr>`).join(''))
+    +`<p class="ex-sum">${t('studentAvg')}: ${r.avg.toFixed(1)}% · ${t('rank')}: ${r.rank} / ${DB.students.filter(s=>s.level===r.st.level).length}</p>`)}},
+ readings:{title:()=>t('readingsLog'),name:()=>'readings-'+todayISO(),
+  html:()=>{const kb={z:t('kindZ'),m:t('kindM'),h:t('kindH')};let tot=0;
+   return sheetHTML(t('readingsTitle'),t('readingsSub'),
+    extTable(['#',t('date'),t('readingStudent'),t('kindCol'),t('surah'),t('fromAyah')+'–'+t('toAyah'),t('ayatWord'),t('listenedBy')],
+     DB.readings.slice().sort((a,b)=>a.date<b.date?1:-1).map((r,i)=>{tot+=r.ayat||0;const st=byId(DB.students,r.studentId);return `<tr><td>${i+1}</td><td>${fmtDate(r.date)}</td><td>${st?esc(st.name):'—'}</td><td>${kb[r.kind]||''}</td><td>${esc(r.surah)}</td><td>${r.from}–${r.to}</td><td>${r.ayat}</td><td>${esc(r.listener||'')}</td></tr>`}).join(''))
+    +`<p class="ex-sum">${t('totalAyatCol')}: ${tot}</p>`)}},
+ students:{title:()=>t('studentsTitle'),name:()=>'students-'+todayISO(),
+  html:()=>sheetHTML(t('studentsTitle'),t('studentsSub'),
+   extTable(['#',t('name'),t('testLevel'),t('teacher'),t('guardian'),t('phone')],
+    DB.students.map((s,i)=>{const tc=byId(DB.users,s.teacherId);return `<tr><td>${i+1}</td><td>${esc(s.name)}</td><td>${t(s.level)}</td><td>${tc?esc(tc.name):t('noTeacher')}</td><td>${esc(s.guardian||'')}</td><td>${esc(s.phone||'')}</td></tr>`}).join(''))}
+};
+function xbar(kind,arg=''){return `<div class="xbar"><i class="ph ph-download-simple"></i>${['copy','png','pdf'].map(f=>`<button class="btn sm ghost" onclick="doSheet('${kind}','${arg}','${f}')"><i class="ph ph-${f==='copy'?'copy':f==='png'?'image':'file-pdf'}"></i>${t(f==='copy'?'copy':f==='png'?'image':'exportPdf')}</button>`).join('')}</div>`}
+function openSheet(kind,arg=''){const b=SHEET_BUILDERS[kind];openModal(`<h3 class="mtitle serif">${b.title()}</h3><div class="sheet-box">${b.html(arg)}</div>
+ <div class="mfoot">${xbar(kind,arg)}<button class="btn sm ghost" onclick="closeModal()"><i class="ph ph-x"></i>${t('cancel')}</button></div>`,true)}
+function doSheet(kind,arg,fmt){const b=SHEET_BUILDERS[kind];_export(b.html(arg),b.name(arg),fmt)}
+async function _export(html,name,kind){
+ if(kind==='copy')return copySheet(html);
+ const st=document.getElementById('exportStage');st.innerHTML=html;st.dir=document.documentElement.dir;
+ try{
+  const c=await html2canvas(st,{scale:2,backgroundColor:'#FFFDF8'});
+  if(kind==='png'){const a=document.createElement('a');a.download=name+'.png';a.href=c.toDataURL('image/png');a.click()}
+  else{const {jsPDF}=window.jspdf;const pdf=new jsPDF('p','pt','a4');const W=pdf.internal.pageSize.getWidth()-48;const H=c.height*W/c.width;const pH=pdf.internal.pageSize.getHeight()-48;const slice=Math.floor(c.width*(pH/W));let done=0,pg=0;
+   while(done<H&&pg<8){if(pg>0)pdf.addPage();pdf.addImage(c.toDataURL('image/png'),'PNG',24,24-done,W,H);done+=slice;pg++}
+   pdf.save(name+'.pdf')}
+ }catch(e){console.error(e);toast(t('exportFail'),'err')}
+ st.innerHTML='';
+}
+async function copySheet(html){const st=document.getElementById('exportStage');st.innerHTML=html;st.dir=document.documentElement.dir;
+ let txt=st.innerText||st.textContent||'';st.innerHTML='';
+ txt=txt.replace(/\u00a0/g,' ').replace(/[ \t]+\n/g,'\n').replace(/\n{3,}/g,'\n\n').trim();
+ try{await navigator.clipboard.writeText(txt);toast(t('copied'))}catch(e){
+  const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');toast(t('copied'))}catch(_){toast(t('copyFail'),'err')}ta.remove()}}
+
+/* ================================================================
+   17) النوافذ والتوست
+================================================================ */
+const MRoot=()=>document.getElementById('modalRoot');
+function openModal(html,wide){MRoot().innerHTML=`<div class="mback" onclick="if(event.target===this)closeModal()"><div class="modal ${wide?'wide':''}">${html}</div></div>`}
+function closeModal(){MRoot().innerHTML=''}
+function confirmBox(msg,onYes){openModal(`<h3 class="mtitle serif">${t('confirmTitle')}</h3><p class="mut" style="margin-top:8px">${msg}</p>
+ <div class="mfoot"><button class="btn ghost" onclick="closeModal()">${t('cancel')}</button><button class="btn danger" id="cfY"><i class="ph ph-trash"></i>${t('delete')}</button></div>`);
+ document.getElementById('cfY').onclick=onYes}
+function toast(msg,kind='ok'){const el=document.createElement('div');el.className='toast '+kind;el.textContent=msg;document.getElementById('toastRoot').appendChild(el);requestAnimationFrame(()=>el.classList.add('show'));setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.remove(),300)},2600)}
+
+/* ================================================================
+   18) PWA — تثبيت التطبيق
+================================================================ */
+let deferredPrompt=null;
+function buildPWA(){
+ const icon=s=>{const c=document.createElement('canvas');c.width=c.height=s;const x=c.getContext('2d');
+  x.fillStyle='#1B261C';x.fillRect(0,0,s,s);const r=s*0.21;x.save();x.translate(s/2,s/2);x.fillStyle='#BC9347';
+  x.fillRect(-r,-r,r*2,r*2);x.rotate(Math.PI/4);x.fillRect(-r,-r,r*2,r*2);x.restore();
+  x.fillStyle='#1B261C';x.beginPath();x.arc(s/2,s/2,s*0.085,0,7);x.fill();return c.toDataURL('image/png')};
+ const man={name:I18N[LANG].appName,short_name:t('appShort'),start_url:'.',display:'standalone',background_color:'#F4EEDC',theme_color:'#1B261C',
+  icons:[{src:icon(192),sizes:'192x192',type:'image/png'},{src:icon(512),sizes:'512x512',type:'image/png'}]};
+ const link=document.getElementById('manifestLink');
+ link.href=URL.createObjectURL(new Blob([JSON.stringify(man)],{type:'application/json'}));
+}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e});
+function installPwa(){
+ if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null;return}
+ toast(t('installHint'));
+}
+
+/* ================================================================
+   19) الإقلاع
+================================================================ */
+(function init(){
+ document.documentElement.lang=LANG;document.documentElement.dir=LANG==='ar'?'rtl':'ltr';document.body.className='lang-'+LANG;
+ loadDB();buildPWA();
+ const sid=sessionStorage.getItem('nsid');if(sid)S.user=byId(DB.users,sid)||null;
+ window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+ render();
+})();
+</script>
+</body>
+</html>
